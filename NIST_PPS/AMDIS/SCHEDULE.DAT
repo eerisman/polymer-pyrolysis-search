@@ -1,0 +1,108 @@
+#SCHEDULE= {All}
+All compounds in the test library
+#SCHEDULE= {Unscheduled}
+Compounds not listed in specific classes
+(These may not be included in final version)
+#SCHEDULE= I.A.1
+O-Alkyl (<=C10, incl.cycloalkyl) alkyl
+    (Me, Et, n-Pr or i-Pr)-phosphonofluoridates
+#SCHEDULE= I.A.2
+O-Alkyl (<=C10, incl.cycloalkyl) N,N-dialkyl
+    (Me, Et, n-Pr or i-Pr)-phosphoroamidocyanidates
+#SCHEDULE= I.A.3
+O-Alkyl (H or <=C10, incl.cycloalkyl) S-2-dialkyl
+    (Me, Et, n-Pr or i-Pr)-aminoethyl alkyl
+    (Me, Et, n-Pr or i-Pr)-phosphonothiolates and
+    coresponding alkylated or protonated salts
+#SCHEDULE= I.A.4   
+Sulfur mustards
+#SCHEDULE= I.A.5 
+Lewisites
+#SCHEDULE= I.A.6
+Nitrogen mustards
+#SCHEDULE= I.A.7 
+Saxitoxin
+#SCHEDULE= I.A.8
+Ricin
+#SCHEDULE= I.B.9
+Alkyl (Me, Et, n-Pr or i-Pr) phosphonyldiflourodes
+#SCHEDULE= I.B.10                                 
+O-Alkyl (H or <=C10, incl.cycloalkyl) O-2-dialkyl
+    (Me, Et, n-Pr or i-Pr)-aminoethyl alkyl
+    (Me, Et, n-Pr or i-Pr)-phosphonites and
+    coresponding alkylated or protonated salts
+#SCHEDULE= I.B.11               
+Chlorosarin
+#SCHEDULE= I.B.12
+Chlorosoman
+#SCHEDULE= II.A.1
+Amiton and corresponding alkylated
+    or protonated salts
+#SCHEDULE= II.A.2  
+PFIB
+#SCHEDULE= II.A.3
+BZ: 3-Quinuclidinyl benzilate (*)
+#SCHEDULE= II.B.4                
+Chemicals, except for those listed in Schedule I, containing a phosphorus atom to which is bonded one methyl, ethyl or ( n- or i- )propyl group but not further carbon atoms.
+    Exemption: Fonofos (CAS RN: 944-22-9)
+#SCHEDULE= II.B.5                                                 
+N,N-Dialkyl (Me, Et, n-Pr or i-Pr)-phosphoramidic dihalides
+#SCHEDULE= II.B.6                                          
+Dialkyl (Me, Et, n-Pr or i-Pr) N,N-Dialkyl
+    (Me, Et, n-Pr or i-Pr)-phosphoramidates
+#SCHEDULE= II.B.7                      
+Arsenic trichloride
+#SCHEDULE= II.B.8  
+2,2-Diphenyl-2-hydroxyacetic acid
+#SCHEDULE= II.B.9                
+Quinuclidine-3-ol
+#SCHEDULE= II.B.10
+N,N-Dialkyl (Me, Et, n-Pr or i-Pr) aminoethyl-2-chlorides
+    and coresponding protonated salts
+#SCHEDULE= II.B.11
+N,N-Dialkyl (Me, Et, n-Pr or i-Pr) aminoethane-2-ols
+    and coresponding protonated salts
+Exemptions:
+    N.N-Dimethylaminoethanol and coresponding protonated salts
+    N,N-Diethylaminoethanol and coresponding protonated salts
+#SCHEDULE= II.B.12
+N,N-Dialkyl (Me, Et, n-Pr or i-Pr) aminoethane-2-thiols
+    and coresponding protonated salts
+#SCHEDULE= II.B.13                                     
+Thiodiglycol
+#SCHEDULE= II.B.14
+Pinacolyl alcohol
+#SCHEDULE= III.A.1
+Phosgene
+#SCHEDULE= III.A.2
+Cyanogen chloride
+#SCHEDULE= III.A.3
+Hydrogen cyanide
+#SCHEDULE= III.A.4
+Chloropicrin
+#SCHEDULE= III.B.5
+Phosphorus oxychloride
+#SCHEDULE= III.B.6    
+Phosphorus trichloride
+#SCHEDULE= III.B.7
+Phosphorus pentachloride
+#SCHEDULE= III.B.8      
+Trimethyl phosphite
+#SCHEDULE= III.B.9
+Triethyl phosphite
+#SCHEDULE= III.B.10
+Dimethyl phosphite
+#SCHEDULE= III.B.11
+Diethyl phosphite
+#SCHEDULE= III.B.12
+Sulfur monochloride
+#SCHEDULE= III.B.13
+Sulfur dichloride
+#SCHEDULE= III.B.14
+Thionyl monochloride
+#SCHEDULE= III.B.15
+Ethyldiethanolamine
+#SCHEDULE= III.B.16
+Methyldiethanolamine
+#SCHEDULE= III.B.17
+Triethanolamine

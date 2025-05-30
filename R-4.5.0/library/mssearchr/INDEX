@@ -1,0 +1,9 @@
+LibrarySearch           Perform the library search within R
+LibrarySearchUsingNistApi
+                        Perform the library search using an API from
+                        NIST
+PreprocessMassSpectra   Pre-process mass spectra
+ReadMsp                 Read mass spectra from an msp-file (NIST
+                        format)
+WriteMsp                Write mass spectra in an msp-file (NIST format)
+massbank_alkanes        Mass spectra of alkanes

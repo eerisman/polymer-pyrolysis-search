@@ -1,0 +1,332 @@
+#  Phase to class conversion table
+#
+# SSNP -	Semi-standard non-polar
+# SNP -		Standard non-polar
+# SP -		Standard polar
+#
+# LIMITATION1:  File should be ANSI
+# LIMITATION2:  All strings are case insensitive
+# LIMITATION3:  Column class cannot start with space character
+# LIMITATION4:  Column class has only 3 possible values
+# LIMITATION5:  Total line length cannot be more than 256 characters
+# LIMITATION6:  Only first 15 characters of the phase are compared
+# LIMITATION7:  lines started with # are ignored
+#
+#class|phase			|
+|SSNP|5 % Phenyl methyl siloxane|
+|SSNP|5 % Phenyl methylsiloxane|
+|SSNP|5 % Phenyl polydimethyl siloxane|
+|SSNP|5 % Phenyl silicone|
+|SSNP|Adamantyl siloxane|
+|SSNP|Apieson L|
+|SSNP|Apieson L / KOH|	
+|SSNP|Apieson M|
+|SSNP|Apiezon|
+|SSNP|Apiezon L|
+|SSNP|Apiezon L + KF|
+|SSNP|Apiezon L + KOH|
+|SSNP|Apiezon LH + KF|
+|SSNP|Apiezon M|
+|SSNP|Apiezon N|
+|SSNP|Apolane|
+|SP  |AquaWax|
+|SNP |AT-1|
+|SSNP|AT-5|
+|SP  |AT-Wax|
+|SNP |BP-1|
+|SP  |BP-20|
+|SP  |BP-21|
+|SSNP|BP-5|
+|SNP |BPA-1|
+|SSNP|BPX5|
+|SSNP|BPX-5|
+|SSNP|C103H208|
+|SP  |C30W|
+|SSNP|C78, Branched paraffin|
+|SP  |CAM|
+|SP  |Carbowax|
+|SP  |Carbowax 20M|
+|SP  |Carbowax 20M / KOH|
+|SP  |Carbowax 20M + Igepal (20:1)|
+|SP  |Carbowax 20M-TPA|
+|SP  |Carbowax 400, Carbowax 20M, Carbowax 1540, Carbowax 4000, Superox 06, PEG 20M, etc.|
+|SP  |Carbowax 4000|
+|SP  |Carbowax 40M|
+|SP  |Carbowax 6000|
+|SP  |Carbowax 6M|
+|SP  |Carbowax PEG CB|
+|SP  |Carbowax-PEG|
+|SNP |CB-1|
+|SNP |CBP-1|
+|SP  |CBP-20|
+|SSNP|CBP-5|
+|SSNP|Chromosorb 101|
+|SSNP|Col-Elite 5MS|
+|SNP |CP Sil 2|
+|SNP |CP Sil 5 CB|
+|SSNP|CP Sil 8 CB|
+|SNP |CP Sil-5 CB|
+|SP  |CP Wax 52 CB|
+|SNP |CP-Sil|
+|SNP |CP-Sil 5|
+|SNP |CP-Sil 5 CB|
+|SSNP|CP-Sil 8 CB|
+|SSNP|CP-Sil 8CB-MS|
+|SNP |CP-Sil PONA GB|
+|SNP |CP-Sil5 CB MS|
+|SSNP|CP-SIL8|
+|SP  |CP-Wax|
+|SP  |CP-Wax 52 CB|
+|SP  |CP-Wax 52CB|
+|SP  |CP-Wax 57 CB|
+|SP  |CP-WAX 57CB|
+|SP  |CP-Wax 58CB|
+|SP  |CP-Wax CB|
+|SP  |Cross-linked FFAP|
+|SNP |Cross-Linked Methylsilicone|
+|SP  |CW 20M|
+|SNP |DB-1|
+|SNP |DB-1 HT|
+|SNP |DB-1 MS|
+|SNP |DB-1HT|
+|SNP |DB-1MS|
+|SNP |DB-1-MS|
+|SSNP|DB-5|
+|SSNP|DB-5 MS|
+|SSNP|DB-5; CP-Sil 8 CB|
+|SSNP|DB5-30W|
+|SSNP|DB-5HT|
+|SSNP|DB-5MS|
+|SP  |DB-FFAP|
+|SP  |DB-Innowax|
+|SSNP|DBP-5|
+|SNP |DB-Petro|
+|SNP |DB-Petro 100|
+|SP  |DB-Wax|
+|SP  |DB-Wax Etr|
+|SNP |DC-200|
+|SSNP|DC-400|
+|SSNP|Dexsil 300|
+|SSNP|Dexsil 400|
+|SSNP|DP-5|
+|SSNP|Durabond-5|
+|SNP |E-301|
+|SNP |EC-1|
+|SP  |EC-1000|
+|SSNP|EC-5|
+|SP  |EC-WAX|
+|SNP |Elite-1|
+|SSNP|Elite-5 MS|
+|SSNP|Elite-5MS|
+|SSNP|Equity-5|
+|SSNP|Equity-5 MS|
+|SSNP|Equity-5MS|
+|SSNP|Factor Four VF-5ms|
+|SP  |FFAP|
+|SP  |FFAP-CB|
+|SSNP|FSOT-RSL-200|
+|SNP |GP SP 2100 DB|
+|SSNP|HG-5|
+|SP  |HP Innowax|
+|SP  |HP Innowax FSP|
+|SNP |HP Ultra 1|
+|SSNP|HP Ultra 2|
+|SNP |HP Ultra-1|
+|SNP |HP-1|
+|SNP |HP-101|
+|SNP |HP-1MS|
+|SP  |HP-20M|
+|SP  |HP20Wax|
+|SSNP|HP-5|
+|SSNP|HP-5 MS|
+|SSNP|HP-5 MS, DB-5 MS|
+|SSNP|HP5-MS|
+|SSNP|HP-5MS|
+|SP  |HP-FFAP|
+|SP  |HP-Innowax|
+|SP  |HP-Innowax FSC|
+|SNP |HP-PONA|
+|SP  |HP-Wax|
+|SSNP|HT-5|
+|SP  |Innowax|
+|SP  |Innowax FSC|
+|SNP |JXR|
+|SNP |LM-1|
+|SP  |LM-120|
+|SSNP|LM-5|
+|SSNP|Lucopren G (silicone elastomer)|
+|SSNP|MDN-5|
+|SSNP|MDN-5S|
+|SSNP|Mega 5 MS|
+|SSNP|Mega 5MS|
+|SSNP|Mega-5|
+|SP  |Megawax|
+|SSNP|Methyl phenyl siloxane (not specified)|
+|SNP |Methyl Silicone|
+|SSNP|methyl silicone oil with 5% Igepal|
+|SSNP|Methylsiloxane + 5 % Ph-groups|
+|SSNP|Methylsiloxane, 5 % Ph groups|
+|SSNP|MFE-73|
+|SSNP|MPS-5|
+|SSNP|MS5|
+|SP  |NB-20M|
+|SNP |NB-30|
+|SP  |NB-351|
+|SSNP|NB-5|
+|SSNP|NB-54|
+|SSNP|n-Dotriacontane|
+|SSNP|Nonpolar|
+|SP  |Nukol|
+|SSNP|Octacosane|
+|SNP |Optima 1|
+|SSNP|Optima 5|
+|SNP |Optima-1|
+|SSNP|Optima-5|
+|SSNP|Optima-5 MS|
+|SSNP|Optima-5MS|
+|SNP |OV-1|
+|SNP |OV-1, SE-30, Methyl silicone, SP-2100, OV-101, DB-1, etc.|
+|SNP |OV-101|
+|SSNP|OV-101 + Igepal|
+|SSNP|OV-22|
+|SSNP|OV-3|
+|SP  |OV-351|
+|SSNP|OV-5|
+|SSNP|OV-73|
+|SNP |PB-1|
+|SNP |PE-1HT|
+|SSNP|PE-5|
+|SSNP|PE-5ht|
+|SSNP|PE-5ms|
+|SP  |PEG|
+|SP  |PEG 20M|
+|SP  |PEG 4000|
+|SP  |PEG-1000|
+|SP  |PEG-2000|
+|SP  |PEG-20M|
+|SP  |PEG-20M Innowax|
+|SP  |PEG-40M|
+|SP  |PEG-40M/KF|
+|SP  |PEG-40M+KF|
+|SNP |Permaphase DMS|
+|SNP |Petrocol DH|
+|SNP |Petrocol DH-100|
+|SP  |PE-Wax|
+|SNP |PMS-100|
+|SNP |PMS-1000|
+|SNP |Polidimethyl siloxane|
+|SNP |Polydimethyl siloxane|
+|SSNP|Polydimethyl siloxane with 5 % Ph|
+|SSNP|Polydimethyl siloxane with 5 % Ph groups|
+|SSNP|Polydimethyl siloxane with 5 % phenyl groups|
+|SSNP|Polydimethyl siloxane, 5 % phenyl|
+|SSNP|Polydimethyl siloxane, 5 % phenyl groups|
+|SSNP|Polydimethyl siloxane, unknown content of Ph-groups|
+|SNP |Polydimethyl siloxane: CP-Sil 5 CB|
+|SNP |Polydimethyl siloxanes|
+|SP  |Polyethylene Glycol|
+|SP  |Polyethylene glycol (Free Fatty Acid Phase)|
+|SP  |Polyethylene Glycol 4000|
+|SNP |Polymethylsiloxane, (PMS-20000)|
+|SNP |PONA|
+|SSNP|Porapack Q|
+|SSNP|PoraPLOT|
+|SSNP|PoraPLOT Q|
+|SSNP|PS-255|
+|SSNP|PTE-5|
+|SSNP|RH-5MS|
+|SNP |RSL-150|
+|SSNP|RSL-200|
+|SSNP|RTV-502|
+|SNP |RTX-1|
+|SNP |RTX-1MS|
+|SNP |RTX-1 PONA|
+|SSNP|RTX-5|
+|SSNP|RTX-5 MS|
+|SSNP|RTx-5 Sil MS|
+|SSNP|Rtx-5MS|
+|SSNP|RTX-5Sil|
+|SSNP|RTX-5Sil MS|
+|SP  |RTX-Wax|
+|SSNP|Rxi-1MS|
+|SSNP|Rxi-5 MS|
+|SSNP|Rxi-5MS|
+|SSNP|Rxi-5Sil|
+|SSNP|Rxi-5SilMS|
+|SSNP|SBP-5|
+|SNP |SE-30|
+|SSNP|SE-30 (10 %) + CW-20M (1 %)|
+|SNP |SE-30 MS|
+|SSNP|SE-30+Igepal|
+|SNP |SE-33|
+|SSNP|SE-52|
+|SSNP|SE-52/54|
+|SSNP|SE-54|
+|SNP |SF-96|
+|SSNP|SF96+Igepal|
+|SSNP|Silicon High Vacuum Grease (obsolete)|
+|SSNP|Silicone oil|
+|SSNP|Siloxane, 5 % Ph|
+|SSNP|SLB-5 MS|
+|SSNP|SLB-5MS|
+|SNP |Solgel-1 (SGE)|
+|SP  |SOLGel-Wax|
+|SNP |SP 2100|
+|SP  |SP-1000|
+|SNP |SP-2100|
+|SNP |SPB-1|
+|SP  |SPB-1000|
+|SSNP|SPB-5|
+|SNP |SPB-Sulfur|
+|SNP |SPD-1|
+|SSNP|Squalane|
+|SNP |SSP-1|
+|SP  |Stabilwax|
+|SP  |Stabilwax DA|
+|SP  |Supelco CO Wax-10|
+|SP  |Supelcowax|
+|SP  |Supelcowax 10|
+|SP  |Supelcowax-10|
+|SP  |Supelcowax-20M|
+|SP  |Supelko CO Wax|
+|SP  |Superox 0.6; Carbowax 20M|
+|SP  |SW-10|
+|SSNP|Synachrom|
+|SNP |TC-1|
+|SP  |TC-FFAP|
+|SP  |TC-Wax|
+|SP  |TC-WAX FFS|
+|SNP |TR-1|
+|SSNP|TR-5 MS|
+|SSNP|TR5-MS|
+|SSNP|Triacontane|
+|SP  |TRWAX|
+|SP  |TR-WAX|
+|SSNP|UCW-98|
+|SNP |Ultra 1|
+|SSNP|Ultra 2|
+|SNP |Ultra-1|
+|SNP |Ultra-1 PONA|
+|SSNP|Ultra-2|
+|SNP |Ultra-ALLOY-5|
+|SSNP|VA-5 MS|
+|SSNP|Vacuum Grease Oil (VM-4)|
+|SSNP|VB-5|
+|SNP |VF-1 MS|
+|SP  |VF-17ms|
+|SSNP|VF-5|
+|SSNP|VF-5 MS|
+|SSNP|VF5-MS|
+|SSNP|VF-5MS|
+|SP  |VF-Wax MS|
+|SP  |WAX 51|
+|SP  |WG-11|
+|SSNP|XTI-5|
+|SNP |ZB-1|
+|SNP |ZB-1 MS|
+|SSNP|ZB-5|
+|SSNP|ZB-5 MS|
+|SP  |ZB-FFAP|
+|SP  |ZB-Wax|
+|SSNP|ZEBRON-5|
+|SSNP|ZP-5|

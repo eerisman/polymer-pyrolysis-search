@@ -1,0 +1,385 @@
+*
+C:\DATA\D5-150611-11-S10\D5-1868-K10N.D\DATA.MS
+1472645712:Wed Aug 31 08:15:12 2016
+1582136202:Wed Feb 19 13:16:42 2020
+1 Not Identified Pentane
+2 Not Identified Nonane
+3 6.023 876.8 46 3.0 1.40 92 Decane
+4 9.051 1200.0 59 3.0 1.50 97 Dodecane
+5 18.600 2000.0 89 3.4 1.10 92 Eicosane
+6 19.549 2100.0 93 3.2 1.10 95 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+C:\DATA\D5-150611-11-S10\D5-1868-K10N.D\DATA.MS
+1472645712:Wed Aug 31 08:15:12 2016
+1582136304:Wed Feb 19 13:18:24 2020
+1 Not Identified Pentane
+2 Not Identified Nonane
+3 6.023 876.8 46 2.9 1.40 92 Decane
+4 9.051 1200.0 59 3.0 1.50 97 Dodecane
+5 18.600 2000.0 89 3.4 1.10 92 Eicosane
+6 19.549 2100.0 93 3.2 1.10 95 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+N:\GCMS_ERISMAN\252643D-BOX9\227\21820_RI_CAL-MIX_1.D\DATA.MS
+1582843006:Thu Feb 27 17:36:46 2020
+1582906787:Fri Feb 28 11:19:47 2020
+1 Not Identified Pentane
+2 2.402 899.9 625 2.2 1.10 100 Nonane
+3 3.210 1000.6 616 2.2 1.20 99 Decane
+4 4.767 1200.0 627 2.4 1.20 100 Dodecane
+5 Not Identified Eicosane
+6 9.986 2099.9 590 2.7 1.30 98 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+C:\USERS\EPE\DESKTOP\252643-D BOX9\DATA\21820_RI_CAL-MIX_1.D\DATA.MS
+1582843006:Thu Feb 27 17:36:46 2020
+1582926619:Fri Feb 28 16:50:19 2020
+1 Not Identified Pentane
+2 2.402 899.9 623 2.2 1.10 100 Nonane
+3 3.210 1000.6 614 2.2 1.20 99 Decane
+4 4.767 1200.0 625 2.4 1.20 100 Dodecane
+5 Not Identified Eicosane
+6 9.986 2099.9 588 2.7 1.30 98 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+C:\USERS\EPE\DESKTOP\252643-D BOX9\DATA\21820_RI_CAL-MIX_1.D\DATA.MS
+1582843006:Thu Feb 27 17:36:46 2020
+1582926642:Fri Feb 28 16:50:42 2020
+1 Not Identified Pentane
+2 2.402 899.9 625 2.2 1.10 100 Nonane
+3 3.210 1000.6 616 2.2 1.20 99 Decane
+4 4.767 1200.0 627 2.4 1.20 100 Dodecane
+5 Not Identified Eicosane
+6 9.986 2099.9 590 2.7 1.30 98 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+N:\GCMS_ERISMAN\252643D-BOX9\DIRECT\39785.D\DATA.MS
+1582171939:Wed Feb 19 23:12:19 2020
+1582927776:Fri Feb 28 17:09:36 2020
+No Compounds Were Selected For Logging
+*
+N:\GCMS_ERISMAN\252643D-BOX9\DIRECT\39785.D\DATA.MS
+1582171939:Wed Feb 19 23:12:19 2020
+1582927852:Fri Feb 28 17:10:52 2020
+No Compounds Were Selected For Logging
+*
+C:\DATA\252643D-BOX9\227\21820_RI_CAL-MIX_1.D\DATA.MS
+1582843006:Thu Feb 27 17:36:46 2020
+1582931300:Fri Feb 28 18:08:20 2020
+1 Not Identified Pentane
+2 2.402 899.9 623 2.2 1.10 100 Nonane
+3 3.210 1000.6 614 2.2 1.20 99 Decane
+4 4.767 1200.0 625 2.4 1.20 100 Dodecane
+5 Not Identified Eicosane
+6 9.986 2099.9 588 2.7 1.30 98 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+C:\DATA\252643D-BOX9\227\21820_RI_CAL-MIX_1.D\DATA.MS
+1582843006:Thu Feb 27 17:36:46 2020
+1583171007:Mon Mar 02 12:43:27 2020
+1 Not Identified Pentane
+2 2.402 899.9 625 2.2 1.10 100 Nonane
+3 3.210 1000.6 616 2.2 1.20 99 Decane
+4 4.767 1200.0 627 2.4 1.20 100 Dodecane
+5 Not Identified Eicosane
+6 9.986 2099.9 590 2.7 1.30 98 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+C:\DATA\252643D-BOX9\227\21820_RI_CAL-MIX_1.D\DATA.MS
+1582843006:Thu Feb 27 17:36:46 2020
+1583171284:Mon Mar 02 12:48:04 2020
+1 Not Identified Pentane
+2 Not Identified Nonane
+3 Not Identified Decane
+4 Not Identified Dodecane
+5 Not Identified Eicosane
+6 Not Identified Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+C:\DATA\252643D-BOX9\227\21820_RI_CAL-MIX_1.D\DATA.MS
+1582843006:Thu Feb 27 17:36:46 2020
+1583171288:Mon Mar 02 12:48:08 2020
+1 Not Identified Pentane
+2 2.402 899.9 625 2.2 1.10 100 Nonane
+3 3.210 1000.6 616 2.2 1.20 99 Decane
+4 4.767 1200.0 627 2.4 1.20 100 Dodecane
+5 Not Identified Eicosane
+6 9.986 2099.9 590 2.7 1.30 98 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+C:\DATA\252643D-BOX9\227\21820_RI_CAL-MIX_1.D\DATA.MS
+1582843006:Thu Feb 27 17:36:46 2020
+1583171433:Mon Mar 02 12:50:33 2020
+1 Not Identified Pentane
+2 2.402 899.9 625 2.2 1.10 100 Nonane
+3 3.210 1000.6 616 2.2 1.20 99 Decane
+4 4.767 1200.0 627 2.4 1.20 100 Dodecane
+5 Not Identified Eicosane
+6 9.986 2099.9 590 2.7 1.30 98 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+C:\DATA\252643D-BOX9\227\21820_RI_CAL-MIX_1.D\DATA.MS
+1582843006:Thu Feb 27 17:36:46 2020
+1583171533:Mon Mar 02 12:52:13 2020
+1 Not Identified Pentane
+2 2.402 899.9 625 2.2 1.10 100 Nonane
+3 3.210 1000.6 616 2.2 1.20 99 Decane
+4 4.767 1200.0 627 2.4 1.20 100 Dodecane
+5 Not Identified Eicosane
+6 9.986 2099.9 590 2.7 1.30 98 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+C:\DATA\252643D-BOX9\32\21820_RI_CAL-MIX_1.D\DATA.MS
+1583168162:Mon Mar 02 11:56:02 2020
+1583335084:Wed Mar 04 10:18:04 2020
+1 Not Identified Pentane
+2 2.400 900.0 626 2.4 0.80 100 Nonane
+3 3.209 1000.6 667 2.3 1.00 99 Decane
+4 4.768 1200.0 659 2.6 0.90 100 Dodecane
+5 Not Identified Eicosane
+6 9.985 2100.0 617 2.8 1.00 99 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+C:\DATA\911\RI1.D\DATA.MS
+1599856496:Fri Sep 11 16:34:56 2020
+1600874210:Wed Sep 23 11:16:50 2020
+1 Not Identified Pentane
+2 1.746 899.8 959 2.9 0.70 100 Nonane
+3 2.507 999.1 1030 2.5 0.90 99 Decane
+4 4.027 1200.0 1042 2.6 0.90 100 Dodecane
+5 Not Identified Eicosane
+6 9.194 2100.1 996 3.1 1.00 99 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+C:\DATA\5975C_MR\2020\10\1016\RI.D\DATA.MS
+1602877388:Fri Oct 16 15:43:08 2020
+1603213955:Tue Oct 20 13:12:35 2020
+1 1.716 900.0 986 2.4 1.10 100 Nonane
+2 2.483 1000.0 1034 2.4 0.80 99 Decane
+3 4.006 1200.0 1026 2.7 0.90 100 Dodecane
+4 9.179 2100.0 962 3.3 0.90 98 Heneicosane
+*
+C:\data\5975C_MR\2020\10\1016\48060R.D\DATA.MS
+1602988552:Sat Oct 17 22:35:52 2020
+1603214419:Tue Oct 20 13:20:19 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5975C_MR\2020\10\1016\48034T.D\DATA.MS
+1602919454:Sat Oct 17 03:24:14 2020
+1603290019:Wed Oct 21 10:20:19 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5975C_MR\2020\10\1016\48035T.D\DATA.MS
+1602920810:Sat Oct 17 03:46:50 2020
+1603290478:Wed Oct 21 10:27:58 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5975C_MR\2020\10\1016\48042T.D\DATA.MS
+1602928942:Sat Oct 17 06:02:22 2020
+1603298408:Wed Oct 21 12:40:08 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5975C_MR\2020\10\1016\48063T.D\DATA.MS
+1602951966:Sat Oct 17 12:26:06 2020
+1603301445:Wed Oct 21 13:30:45 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5975C_MR\2020\10\1016\48064T.D\DATA.MS
+1602953320:Sat Oct 17 12:48:40 2020
+1603301581:Wed Oct 21 13:33:01 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5975C_MR\2020\10\1016\48064T.D\DATA.MS
+1602953320:Sat Oct 17 12:48:40 2020
+1603301597:Wed Oct 21 13:33:17 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5975C_MR\2020\10\1016\48065T.D\DATA.MS
+1602954672:Sat Oct 17 13:11:12 2020
+1603302623:Wed Oct 21 13:50:23 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5975C_MR\2020\10\1016\48067T.D\DATA.MS
+1602957384:Sat Oct 17 13:56:24 2020
+1603303533:Wed Oct 21 14:05:33 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5975C_MR\2020\10\1016\48076T.D\DATA.MS
+1602965514:Sat Oct 17 16:11:54 2020
+1603308037:Wed Oct 21 15:20:37 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5975C_MR\2020\10\1016\48080T.D\DATA.MS
+1602969584:Sat Oct 17 17:19:44 2020
+1603310686:Wed Oct 21 16:04:46 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5975C_MR\2020\10\1016\48080T.D\DATA.MS
+1602969584:Sat Oct 17 17:19:44 2020
+1603310703:Wed Oct 21 16:05:03 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5975C_MR\2020\10\1016\48081T.D\DATA.MS
+1602970936:Sat Oct 17 17:42:16 2020
+1603311415:Wed Oct 21 16:16:55 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5975C_MR\2020\10\1016\48031R.D\DATA.MS
+1602987194:Sat Oct 17 22:13:14 2020
+1603328987:Wed Oct 21 21:09:47 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5975C_MR\2020\10\1016\48031R.D\DATA.MS
+1602987194:Sat Oct 17 22:13:14 2020
+1603329025:Wed Oct 21 21:10:25 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5975C_MR\2020\10\1016\48083R.D\DATA.MS
+1602993966:Sun Oct 18 00:06:06 2020
+1603329365:Wed Oct 21 21:16:05 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5977B_MR\2020\10\1012\48019M.D\DATA.MS
+1602668936:Wed Oct 14 05:48:56 2020
+1603828475:Tue Oct 27 15:54:35 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5977B_MR\2020\10\1012\48019M.D\DATA.MS
+1602668936:Wed Oct 14 05:48:56 2020
+1603828492:Tue Oct 27 15:54:52 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5977B_MR\2020\10\1012\48019M.D\DATA.MS
+1602668936:Wed Oct 14 05:48:56 2020
+1603830929:Tue Oct 27 16:35:29 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5977B_MR\2020\10\1012\48019M.D\DATA.MS
+1602668936:Wed Oct 14 05:48:56 2020
+1603830939:Tue Oct 27 16:35:39 2020
+No Compounds Were Selected For Logging
+*
+C:\data\5977B_MR\2020\10\1012\48019M.D\DATA.MS
+1602668936:Wed Oct 14 05:48:56 2020
+1603830949:Tue Oct 27 16:35:49 2020
+No Compounds Were Selected For Logging
+*
+C:\DATA\5975C_MR\2020\10\1029\RI.D\DATA.MS
+1604103776:Fri Oct 30 20:22:56 2020
+1604416187:Tue Nov 03 10:09:47 2020
+1 1.966 900.0 724 2.5 1.10 100 Nonane
+2 2.748 1000.0 836 2.3 1.10 99 Decane
+3 4.281 1200.0 870 2.5 1.10 100 Dodecane
+4 9.010 1951.1 1068 3.2 0.80 94 Eicosane
+5 9.480 2000.0 1059 3.2 0.90 99 Heneicosane
+6 10.363 2200.0 1026 3.3 1.00 90 Tricosane
+7 11.178 2400.0 1020 3.2 1.20 87 Pentacosane
+*
+C:\DATA\5975C_MR\2020\10\1029\RI.D\DATA.MS
+1604103776:Fri Oct 30 20:22:56 2020
+1604416337:Tue Nov 03 10:12:17 2020
+1 1.966 900.0 724 2.5 1.10 100 Nonane
+2 2.748 1000.0 836 2.3 1.10 99 Decane
+3 4.281 1200.0 870 2.5 1.10 100 Dodecane
+4 9.010 2000.0 1068 3.2 0.80 94 Eicosane
+5 9.480 2100.0 1059 3.2 0.90 99 Heneicosane
+6 10.363 2300.0 1026 3.3 1.00 90 Tricosane
+7 11.178 2500.0 1020 3.2 1.20 87 Pentacosane
+*
+C:\USERS\DWIGGINS\DESKTOP\RI COPY\8890\314\RI.D\DATA.MS
+1647282850:Mon Mar 14 14:34:10 2022
+1668390693:Sun Nov 13 20:51:33 2022
+1 Not Identified Pentane
+2 2.846 900.0 744 2.9 1.40 100 Nonane
+3 3.697 1002.6 985 3.0 0.70 98 Decane
+4 5.262 1200.0 1186 2.8 0.90 100 Dodecane
+5 9.985 2000.0 1212 3.2 0.90 93 Eicosane
+6 10.455 2100.0 1201 3.3 1.00 99 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+C:\USERS\DWIGGINS\DESKTOP\RI COPY\8890\314\RI.D\DATA.MS
+1647282850:Mon Mar 14 14:34:10 2022
+1668390721:Sun Nov 13 20:52:01 2022
+1 Not Identified Pentane
+2 2.846 900.0 744 2.9 1.40 100 Nonane
+3 3.697 1002.6 985 3.0 0.70 98 Decane
+4 5.262 1200.0 1186 2.8 0.90 100 Dodecane
+5 9.985 2000.0 1212 3.2 0.90 93 Eicosane
+6 10.455 2100.0 1201 3.3 1.00 99 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+C:\USERS\DWIGGINS\DESKTOP\RI COPY\8890\314\RII.D\DATA.MS
+1647292884:Mon Mar 14 17:21:24 2022
+1668391545:Sun Nov 13 21:05:45 2022
+1 Not Identified Pentane
+2 2.845 900.0 695 2.7 1.60 100 Nonane
+3 3.695 1002.6 941 3.1 0.80 98 Decane
+4 5.260 1200.0 1146 2.6 0.90 100 Dodecane
+5 Not Identified Eicosane
+6 10.453 2100.1 1167 3.1 1.00 100 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+D:\DATA\5977B_MR\DATA\2024\829\RI.D\DATA.MS
+1724970612:Thu Aug 29 18:30:12 2024
+1725383239:Tue Sep 03 13:07:19 2024
+1 Not Identified Pentane
+2 Not Identified Nonane
+3 1.926 814.2 498 1.7 1.40 90 Decane
+4 3.300 1200.0 826 2.2 1.30 100 Dodecane
+5 Not Identified Eicosane
+6 8.423 2100.0 857 2.7 1.50 99 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+D:\DATA\5977B_MR\DATA\2024\829\RI.D\DATA.MS
+1724970612:Thu Aug 29 18:30:12 2024
+1725383330:Tue Sep 03 13:08:50 2024
+1 Not Identified Pentane
+2 Not Identified Nonane
+3 1.926 814.2 499 1.7 1.40 90 Decane
+4 3.300 1200.0 827 2.2 1.30 100 Dodecane
+5 Not Identified Eicosane
+6 8.423 2100.0 858 2.7 1.50 99 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+D:\DATA\5977B_MR\DATA\2025\0307\RI.D\DATA.MS
+1741380685:Fri Mar 07 15:51:25 2025
+1741619302:Mon Mar 10 11:08:22 2025
+1 Not Identified Pentane
+2 Not Identified Nonane
+3 1.897 810.9 537 1.7 1.10 90 Decane
+4 3.272 1200.0 873 2.2 1.00 100 Dodecane
+5 Not Identified Eicosane
+6 8.390 2100.1 906 2.7 1.20 99 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
+*
+D:\DATA\5977B_MR\DATA\2025\0307\RI.D\DATA.MS
+1741380685:Fri Mar 07 15:51:25 2025
+1741619495:Mon Mar 10 11:11:35 2025
+1 Not Identified Pentane
+2 Not Identified Nonane
+3 1.897 810.9 537 1.7 1.10 90 Decane
+4 3.272 1200.0 873 2.2 1.00 100 Dodecane
+5 Not Identified Eicosane
+6 8.390 2100.1 906 2.7 1.20 99 Heneicosane
+7 Not Identified Tricosane
+8 Not Identified Pentacosane
