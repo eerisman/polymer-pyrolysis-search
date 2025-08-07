@@ -2,13 +2,13 @@
 #library mspec must be "./libraries/pyrolysis.MSPEC"
 #returns nested list of polymer.list as polymer result, peaks and pyrolyzate results, 
 #query and lib as massearchr PreprocessedMassSpectra
-mssearch <- function(x){
+mssearch <- function(x, snc, mfc, rip){
   query <- PreprocessMassSpectra(ReadMsp(x))  
   lib <- PreprocessMassSpectra(ReadMsp("./libraries/pyrolysis.MSPEC"))
-  #signal to noise filter only take greater than 50
+  #signal to noise filter only take greater than cutoff "snc"
   sn <- NULL
   for (i in 1:length(query)){sn[i] <- as.numeric(query[[i]]$sn)}
-  query <- query[which(sn >50)]
+  query <- query[which(sn >snc)]
   
   #remove dup rts
   rt <- NULL
@@ -21,16 +21,16 @@ mssearch <- function(x){
   #add query index to results
   for (i in 1:length(results)){results[[i]]$qindx <- i}
   
-  #convert nested list to data frame
+  #convert nested list to data frame match factor  > cutoff "mfc"
   results <- as.data.frame(do.call(rbind, results))
-  results <- subset(results, results$mf>700)
+  results <- subset(results, results$mf>mfc)
   
-  #modify mf delta RI
+  #modify mf delta RI mfp = (deltaRI-tol)/tol*rip
   for (i in 1:nrow(results)){results$dri[i] <- abs(as.numeric(query[[results$qindx[i]]]$ri)- as.numeric(lib[[results$idx[i]]]$ri))}
   #RI tolerance
   for (i in 1:nrow(results)){results$tol[i] <- as.numeric(query[[results$qindx[i]]]$ri)/100}
   # calc match factor penalty
-  for (i in 1:nrow(results)){results$mfp[i] <- if (results$dri[i] < results$tol[i]){0}else{50*(results$dri[i]-results$tol[i])/results$tol[i]}}
+  for (i in 1:nrow(results)){results$mfp[i] <- if (results$dri[i] < results$tol[i]){0}else{rip*(results$dri[i]-results$tol[i])/results$tol[i]}}
   # calc mod mf
   for (i in 1:nrow(results)){results$modmf[i] <-results$mf[i] - results$mfp[i]}
   # ri for display
@@ -38,7 +38,7 @@ mssearch <- function(x){
   # rt for display
   for (i in 1:nrow(results)){results$rt[i] <- as.numeric(query[[results$qindx[i]]]$rt)}
   #subset results for modmf
-  results <- subset(results, results$modmf >700)
+  results <- subset(results, results$modmf >mfc)
   results <- results[order(results$qindx, -results$modmf),]
   write.csv(results, "./results/searchresults.csv", row.names = FALSE)
   #top hit

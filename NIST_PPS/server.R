@@ -71,7 +71,7 @@ server <- function(input, output, session) {
     #display RI found message
     output$system2 <- renderText({rifile()})
     
-    #run AMDIS on data ##needs work
+    #run AMDIS on data
     observeEvent(input$search,{
       command1 <-if (grepl(".*\\.d", datapath(), ignore.case = T)){paste0("./AMDIS/AMDIS_32.exe ", datapath(),"\\data.ms")
       }else{paste0("./AMDIS/AMDIS_32.exe ", datapath())}#modified
@@ -79,7 +79,7 @@ server <- function(input, output, session) {
       system(command1)
       elupath <- if (file.exists(gsub("\\..*",".ELU", datapath()))){gsub("\\..*",".ELU", datapath())} #modified
       elu2mspec(elupath)
-      results <- mssearch(paste0("./data/", gsub(".*/(.+)\\..*", "\\1", datapath()),".MSPEC"))  #modified
+      results <- mssearch(paste0("./data/", gsub(".*/(.+)\\..*", "\\1", datapath()),".MSPEC"), input$snc, input$mfc, input$rip)  #modified
       output$polymer <- DT::renderDataTable(results[[1]], rownames = FALSE)
       output$peaks <- DT::renderDataTable(results[[2]][,c(13,12,1,2,4:6,8:11,14)], selection = 'single', rownames = FALSE)
       
