@@ -4,6 +4,7 @@ source("./functions/mssearch.R", local = TRUE)
 
 library(mssearchr)
 library(mzR)
+library(plotly)
 
 server <- function(input, output, session) {
   volumes = getVolumes()
@@ -28,7 +29,7 @@ server <- function(input, output, session) {
     tic <- reactive({
             if (length(datapath()) < 1) {NULL
                 }else if (file.exists(paste0(datapath(),"/tic_front.csv"))){
-                read.csv(paste0(datapath(),"/tic_front.csv"), skip = 2)
+                read.csv(paste0(datapath(),"/tic_front.csv"), skip = 2, header = F, col.names = c("time", "abund"))
                 }else if (grepl(".*\\.CDF", datapath(), ignore.case = T)){
                 data.header <- header(openMSfile(datapath()))
                 cbind(data.header$retentionTime/60, data.header$totIonCurrent)}
@@ -39,34 +40,42 @@ server <- function(input, output, session) {
       if (file.exists("./AMDIS/LIB/Local.cal")){"RI cal file found"}
       else{"RI cal file not found"})
     
+    #RI cal data for annotations modified
+    ri.cal <- reactiveVal(if (file.exists("./AMDIS/LIB/Local.cal")){read.csv("./AMDIS/LIB/Local.cal", sep = "", header = F)}else{NULL})
+    
     #run AMDIS for RI
     observeEvent(input$RI, {
       command <- if (grepl(".*\\.d", datapath(), ignore.case = T)){paste0("./AMDIS/AMDIS_32.exe ", datapath(),"\\data.ms")
         }else{paste0("./AMDIS/AMDIS_32.exe ", datapath())} #modified
       command <- paste0(gsub("/","\\\\",command), " \\/e")
       system(command)
-      output$system2 <- renderText("AMDIS complete")
+      output$system3 <- renderText("AMDIS complete")
       if (file.exists(gsub("\\..*",".ELU", datapath()))){elupath <- gsub("\\..*",".ELU", datapath())}else{output$system2 <- renderText("No ELU")}
       elu2mspec(elupath)
       cal <- rical(paste0("./data/",gsub(".*/(.+).ELU", "\\1", elupath), ".MSPEC"))
-      output$chromatogram <-renderPlot(
-        if (is.null(tic())){plot.new()}else
-        {plot(tic(), xlab = "time", ylab = "abundance", type = "l", main = gsub(".*/(.+)\\..*", "\\1", datapath()))  #modified
-        text(cal[,1], max(tic()[,2]), paste0("C",cal[,2]/100), col = "RED")
-     })
-    })
-
-    #updating that RI cal file found
-    observeEvent(input$RI, {
-      rifile(if (file.exists("./AMDIS/LIB/Local.cal")){"RI file found"}else{"not found"})
-    })
-    
-    #plot tic  
-    output$chromatogram <-renderPlot({
-      if (is.null(tic())){plot.new()}else{
-        plot(tic(), xlab = "time", ylab = "abundance", type = "l", main = gsub(".*/(.+)\\..*", "\\1", datapath()))  #modified 
-        }
+      rifile(if (file.exists("./AMDIS/LIB/Local.cal")){"RI file found"}else{"not found"}) #updating the RI message
+      ri.cal(read.csv("./AMDIS/LIB/Local.cal", sep = "", header = F)) #updating the ri calibration data for display on chromatogram
       })
+
+    #plot tic
+    output$chromatogram.plotly <-renderPlotly({
+       if (is.null(tic())){plotly_empty(type = "scatter", mode = "lines")}else
+       {layout(plot_ly(x=tic()[,1],y=tic()[,2], type = "scatter", mode = "lines"),
+              xaxis = list(title = "time"),
+              yaxis = list(title = "abundance"),
+              title = gsub(".*/(.+)\\..*", "\\1", datapath()),
+              annotations = lapply(1:nrow(ri.cal()), function(i){
+                list(x = ri.cal()[i,1],
+                     y = 1,
+                     text = paste0("C",ri.cal()[i,2]/100),
+                     showarrow = F,
+                     xref = "x",
+                     yref = "paper",
+                     font = list(size = 15, weight = 'bold', color = 'red'))
+              })
+              )}
+
+    })
     
     #display RI found message
     output$system2 <- renderText({rifile()})
@@ -80,29 +89,34 @@ server <- function(input, output, session) {
       elupath <- if (file.exists(gsub("\\..*",".ELU", datapath()))){gsub("\\..*",".ELU", datapath())} #modified
       elu2mspec(elupath)
       results <- mssearch(paste0("./data/", gsub(".*/(.+)\\..*", "\\1", datapath()),".MSPEC"), input$snc, input$mfc, input$rip)  #modified
-      output$polymer <- DT::renderDataTable(results[[1]], rownames = FALSE)
+      output$polymer <- DT::renderDataTable(results[[1]], selection = 'single', rownames = FALSE)
       output$peaks <- DT::renderDataTable(results[[2]][,c(13,12,1,2,4:6,8:11,14)], selection = 'single', rownames = FALSE)
       
-      output$spectra <- renderPlot({
-        s <- input$peaks_rows_selected
-        if (is.null(s)){
-          plot.new()
-          return()}
-        lib.entry <- results[[2]][s,]$idx
-        query.entry <- results[[2]][s,]$qindx
-          if (exists("lib.entry")&exists("query.entry")){
-          plot(results[[4]][[lib.entry]]$mz,
-                 results[[4]][[lib.entry]]$intst,
-                 xlab = "m/z", ylab = "abundance", ylim = c(-1000,1000), 
-                 type = "h", main = "Spectra", lwd = 2, col = "blue")
-          lines(results[[3]][[query.entry]]$mz,
-                -results[[3]][[query.entry]]$intst,
-                type = "h", lwd = 2, col = "red")
-          mtext("Query", side = 3, col = "blue")
-          mtext("Library", side = 1, col = "red")
-            }
-      }
-      )
+      output$spectra.plotly <- renderPlotly({
+         s <- input$peaks_rows_selected
+         if (is.null(s())){
+           plotly_empty(type = "scatter", mode = "lines")
+           return()}
+         lib.entry <- results[[2]][s(),]$idx
+         query.entry <- results[[2]][s(),]$qindx
+           if (exists("lib.entry")&exists("query.entry")){
+           plot_ly(type = "scatter", mode = "lines") %>%
+               add_trace(x = as.vector(sapply(results[[3]][[query.entry]]$mz, function(x) c(x,x,NA))), 
+                         y = as.vector(sapply(results[[3]][[query.entry]]$intst, function(y) c(0,y,NA))), 
+                         name = "Query", line = list(color = "blue", width = 3)) %>%
+               add_trace(x = as.vector(sapply(results[[4]][[lib.entry]]$mz, function(x) c(x,x,NA))),
+                         y = -as.vector(sapply(results[[4]][[lib.entry]]$intst, function(y) c(0,y,NA))),
+                         name = "Library", line = list(color = "red", width = 3)) %>%
+           layout(
+               title = "Spectra",
+               xaxis = list(title = "m/z", 
+                            range = c(min(c(results[[3]][[query.entry]]$mz,results[[4]][[lib.entry]]$mz))-5
+                                      ,max(c(results[[3]][[query.entry]]$mz,results[[4]][[lib.entry]]$mz))+5)),
+               yaxis = list(title = "rel. abund", range = c(-1000,1000))
+           )   
+             }
+       }
+       )
       })
     
 }

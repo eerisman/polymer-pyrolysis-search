@@ -1,5 +1,5 @@
 library(shinyFiles)
-
+library(plotly)
 ui <- fluidPage(
   titlePanel("NIST Pyrolysis Polymer Search"),
   fluidRow(
@@ -16,11 +16,11 @@ ui <- fluidPage(
           textOutput("system3")
         ), 
       column(5,
-          plotOutput("chromatogram")
+          plotlyOutput("chromatogram.plotly")
         ),
       column(5,
-          plotOutput("spectra")
-        )
+          plotlyOutput("spectra.plotly")
+                  )
   ),
   
   fluidRow(
