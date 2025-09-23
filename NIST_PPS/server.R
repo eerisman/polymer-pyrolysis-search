@@ -94,11 +94,11 @@ server <- function(input, output, session) {
       
       output$spectra.plotly <- renderPlotly({
          s <- input$peaks_rows_selected
-         if (is.null(s())){
+         if (is.null(s)){
            plotly_empty(type = "scatter", mode = "lines")
            return()}
-         lib.entry <- results[[2]][s(),]$idx
-         query.entry <- results[[2]][s(),]$qindx
+         lib.entry <- results[[2]][s,]$idx
+         query.entry <- results[[2]][s,]$qindx
            if (exists("lib.entry")&exists("query.entry")){
            plot_ly(type = "scatter", mode = "lines") %>%
                add_trace(x = as.vector(sapply(results[[3]][[query.entry]]$mz, function(x) c(x,x,NA))), 
