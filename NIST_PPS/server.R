@@ -9,6 +9,7 @@ library(plotly)
 server <- function(input, output, session) {
   volumes = getVolumes()
   shinyFileChoose(input, 'file', roots=volumes, filetypes=c('', 'd', 'cdf'))
+  
   #create AMDIS onsite.ini file
   loc <- getwd()
   onsite <- readLines(paste0(loc,"/AMDIS/onsiteminimum.ini"))
@@ -16,7 +17,12 @@ server <- function(input, output, session) {
   lib <- (gsub("/","\\\\",lib))
   writeLines(lib, "./AMDIS/onsite.ini")
   
-  datapath <- reactive({parseFilePaths(volumes, input$file)$datapath})
+  #results file reactive
+  results <- reactiveVal(NULL)
+  
+  datapath <- reactive({
+    results(NULL)
+    parseFilePaths(volumes, input$file)$datapath})
     
     #display data path
     output$path <- renderText({datapath()})
@@ -58,24 +64,39 @@ server <- function(input, output, session) {
       })
 
     #plot tic
-    output$chromatogram.plotly <-renderPlotly({
-       if (is.null(tic())){plotly_empty(type = "scatter", mode = "lines")}else
-       {layout(plot_ly(x=tic()[,1],y=tic()[,2], type = "scatter", mode = "lines"),
-              xaxis = list(title = "time"),
-              yaxis = list(title = "abundance"),
-              title = gsub(".*/(.+)\\..*", "\\1", datapath()),
-              annotations = lapply(1:nrow(ri.cal()), function(i){
-                list(x = ri.cal()[i,1],
-                     y = 1,
-                     text = paste0("C",ri.cal()[i,2]/100),
-                     showarrow = F,
-                     xref = "x",
-                     yref = "paper",
-                     font = list(size = 15, weight = 'bold', color = 'red'))
-              })
-              )}
-
-    })
+     output$chromatogram.plotly <-renderPlotly({
+       chrom<- if (is.null(tic())){plotly_empty(type = "scatter", mode = "lines")}else
+           plot_ly(x=tic()[,1],y=tic()[,2], type = "scatter", mode = "lines")%>%
+         layout(
+               xaxis = list(title = "Time (min)"),
+               yaxis = list(title = "Abundance"),
+               title = gsub(".*/(.+)\\..*", "\\1", datapath()))
+        if (is.null(tic())){
+           ann.ri <- NULL}else 
+             {if (is.null(ri.cal())){ann.ri <- NULL}else
+              {ann.ri <- lapply(1:nrow(ri.cal()), function(i){
+                  list(x = ri.cal()[i,1],
+                         y = 1,
+                         text = paste0("C",ri.cal()[i,2]/100),
+                         showarrow = F,
+                         xref = "x",
+                         yref = "paper",
+                         font = list(size = 15, weight = 'bold', color = 'red'))}
+        )}}
+       if (is.null(tic())){ann.marker <- NULL} else 
+       if (is.null(input$peaks_rows_selected)){ann.marker <- NULL} else
+         {ann.marker <- list(list(
+                 x = results()[[2]][input$peaks_rows_selected,13],
+                 y = tic()[which.min(abs(tic()[,1] - results()[[2]][input$peaks_rows_selected,13])),2],
+                 text = "",
+                 ax = 0,
+                 ay = -30,
+                 arrowcolor = 'green',
+                 arrowwidth = 3
+          ))}
+         chrom%>%
+           layout(annotations = c(ann.ri,ann.marker))
+     })
     
     #display RI found message
     output$system2 <- renderText({rifile()})
@@ -88,30 +109,30 @@ server <- function(input, output, session) {
       system(command1)
       elupath <- if (file.exists(gsub("\\..*",".ELU", datapath()))){gsub("\\..*",".ELU", datapath())} #modified
       elu2mspec(elupath)
-      results <- mssearch(paste0("./data/", gsub(".*/(.+)\\..*", "\\1", datapath()),".MSPEC"), input$snc, input$mfc, input$rip)  #modified
-      output$polymer <- DT::renderDataTable(results[[1]], selection = 'single', rownames = FALSE)
-      output$peaks <- DT::renderDataTable(results[[2]][,c(13,12,1,2,4:6,8:11,14)], selection = 'single', rownames = FALSE)
+      results(mssearch(paste0("./data/", gsub(".*/(.+)\\..*", "\\1", datapath()),".MSPEC"), input$snc, input$mfc, input$rip))
+      output$polymer <- DT::renderDataTable(results()[[1]], selection = 'single', rownames = FALSE)
+      output$peaks <- DT::renderDataTable(results()[[2]][,c(13,12,1,2,4:6,8:11,14)], selection = 'single', rownames = FALSE)
       
       output$spectra.plotly <- renderPlotly({
          s <- input$peaks_rows_selected
          if (is.null(s)){
            plotly_empty(type = "scatter", mode = "lines")
            return()}
-         lib.entry <- results[[2]][s,]$idx
-         query.entry <- results[[2]][s,]$qindx
+         lib.entry <- results()[[2]][s,]$idx
+         query.entry <- results()[[2]][s,]$qindx
            if (exists("lib.entry")&exists("query.entry")){
            plot_ly(type = "scatter", mode = "lines") %>%
-               add_trace(x = as.vector(sapply(results[[3]][[query.entry]]$mz, function(x) c(x,x,NA))), 
-                         y = as.vector(sapply(results[[3]][[query.entry]]$intst, function(y) c(0,y,NA))), 
+               add_trace(x = as.vector(sapply(results()[[3]][[query.entry]]$mz, function(x) c(x,x,NA))), 
+                         y = as.vector(sapply(results()[[3]][[query.entry]]$intst, function(y) c(0,y,NA))), 
                          name = "Query", line = list(color = "blue", width = 3)) %>%
-               add_trace(x = as.vector(sapply(results[[4]][[lib.entry]]$mz, function(x) c(x,x,NA))),
-                         y = -as.vector(sapply(results[[4]][[lib.entry]]$intst, function(y) c(0,y,NA))),
+               add_trace(x = as.vector(sapply(results()[[4]][[lib.entry]]$mz, function(x) c(x,x,NA))),
+                         y = -as.vector(sapply(results()[[4]][[lib.entry]]$intst, function(y) c(0,y,NA))),
                          name = "Library", line = list(color = "red", width = 3)) %>%
            layout(
                title = "Spectra",
                xaxis = list(title = "m/z", 
-                            range = c(min(c(results[[3]][[query.entry]]$mz,results[[4]][[lib.entry]]$mz))-5
-                                      ,max(c(results[[3]][[query.entry]]$mz,results[[4]][[lib.entry]]$mz))+5)),
+                            range = c(min(c(results()[[3]][[query.entry]]$mz,results()[[4]][[lib.entry]]$mz))-5
+                                      ,max(c(results()[[3]][[query.entry]]$mz,results()[[4]][[lib.entry]]$mz))+5)),
                yaxis = list(title = "rel. abund", range = c(-1000,1000))
            )   
              }
