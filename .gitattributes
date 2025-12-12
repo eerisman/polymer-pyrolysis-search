@@ -1,2 +1,2 @@
 *     text=auto eol=lf
-*.db  text eol=crlf
+*.db  binary
