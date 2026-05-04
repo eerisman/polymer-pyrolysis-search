@@ -86,8 +86,8 @@ server <- function(input, output, session) {
        if (is.null(tic())){ann.marker <- NULL} else 
        if (is.null(input$peaks_rows_selected)){ann.marker <- NULL} else
          {ann.marker <- list(list(
-                 x = results()[[2]][input$peaks_rows_selected,13],
-                 y = tic()[which.min(abs(tic()[,1] - results()[[2]][input$peaks_rows_selected,13])),2],
+                 x = results()[[2]][input$peaks_rows_selected,12],
+                 y = tic()[which.min(abs(tic()[,1] - results()[[2]][input$peaks_rows_selected,12])),2],
                  text = "",
                  ax = 0,
                  ay = -30,
@@ -111,7 +111,23 @@ server <- function(input, output, session) {
       elu2mspec(elupath)
       results(mssearch(paste0("./data/", gsub(".*/(.+)\\..*", "\\1", datapath()),".MSPEC"), input$snc, input$mfc, input$rip))
       output$polymer <- DT::renderDataTable(results()[[1]], selection = 'single', rownames = FALSE)
-      output$peaks <- DT::renderDataTable(results()[[2]][,c(13,12,1,2,4:6,8:11,14)], selection = 'single', rownames = FALSE)
+      output$peaks <- DT::renderDataTable(results()[[2]][,c(12,11,1,2,4:5,7:10,13)], selection = 'single', rownames = FALSE)
+      
+      output$polymer.struct <- renderUI(
+           if (is.numeric(input$polymer_rows_selected)){
+            polymer.name <- sub(" \\(.*\\)", "", results()[[1]][input$polymer_rows_selected,1])
+            polymer.path <- paste0("polymers/",polymer.name,".svg")
+            img(src = polymer.path, height = 100)
+       }else{NULL}
+         )
+      
+      output$pyrolyzate.struct <- renderUI(
+        if (is.numeric(input$peaks_rows_selected)){
+          pyrolyzate.index <- results()[[2]][input$peaks_rows_selected,3]
+          pyrolyzate.path <- paste0("pyrolyzates/",pyrolyzate.index,".svg")
+          img(src = pyrolyzate.path, height = 100)
+        }else{NULL}
+      )
       
       output$spectra.plotly <- renderPlotly({
          s <- input$peaks_rows_selected

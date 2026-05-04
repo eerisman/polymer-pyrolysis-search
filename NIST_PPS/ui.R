@@ -1,8 +1,12 @@
 library(shinyFiles)
 library(plotly)
 ui <- fluidPage(
-  titlePanel("NIST Pyrolysis Polymer Search"),
-  fluidRow(
+  titlePanel(windowTitle = 'NIST Polymer Pyrolysis Search',
+    fluidRow(
+      column(8,h1('NIST Polymer Pyrolysis Search'), align = 'center'),
+      column(4,img(height = 100, src='logo.png', align = 'center')))),
+  
+    fluidRow(
       column(2,
           shinyFilesButton('file', '*.d or netcdf file select', 'Please select a data file', FALSE),
           textOutput("path"),
@@ -24,7 +28,12 @@ ui <- fluidPage(
   ),
   
   fluidRow(
+    column(4, uiOutput("polymer.struct")),
+    column(8, uiOutput("pyrolyzate.struct"))       
+  ),
+  
+  fluidRow(
       column(4, DT::dataTableOutput("polymer")),
       column(8, DT::dataTableOutput("peaks"))
         )
-)
+  )

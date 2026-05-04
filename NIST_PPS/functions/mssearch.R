@@ -16,7 +16,7 @@ mssearch <- function(x, snc, mfc, rip){
   query <- query[!duplicated(rt)]
   
   #library search
-  results <- LibrarySearch(query, lib, n_hits = 20)
+  results <- LibrarySearch(query, lib, n_hits = 20, hitlist_columns = c("name", "formula", "mw"))
   
   #add query index to results
   for (i in 1:length(results)){results[[i]]$qindx <- i}
@@ -54,14 +54,14 @@ mssearch <- function(x, snc, mfc, rip){
   #combine and sort tophit and other hits
   peaks <- rbind(tophit, otherhits)
   peaks <- peaks[order(peaks$qindx, -peaks$modmf),]
-  peaks[,c(2,8,9,10,11)] <- round(peaks[,c(2,8,9,10,11)], 2)## rounding
+  peaks[,c(2,7,8,9,10)] <- round(peaks[,c(2,7,8,9,10)], 2)
   write.csv(peaks, "./results/peaksresults.csv", row.names = FALSE)
   for (i in 1:nrow(peaks)){peaks$polymer[i] <- lib[[peaks[i,3]]]$polymer}#polymer generate polymer list
   polymer.list <- unique(unlist(strsplit(peaks$polymer, "; ")))#unique polymers
   #polymer attribution
   count <- NULL
   for (i in 1:length(polymer.list)){count[i] <- length(grep(gsub("\\(.*", "",polymer.list[i]), peaks$polymer))}
-  #libery pyrolyate count
+  #library pyrolyzate count
   libcount <- NULL
   for (i in 1:length(polymer.list)){libcount[i] <- as.integer(gsub(".*\\((.+)\\)", "\\1",polymer.list[i]))}
   # average modmf

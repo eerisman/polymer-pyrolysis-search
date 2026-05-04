@@ -1,0 +1,55 @@
+STATE:|F80|W12|S10|L10 (auto)|M820|D0|TY1|RE1|DL1|PS0|RN0|FLC:\Users\epe\Documents\GitHub\polymer-pyrolysis-search\NIST_PPS\AMDIS\LIB\ONSITE.MSL|mI0|sH0|dL1|sS0|tH0|rB0|RI20,0,20,10,1
+|HD 29 May 2024, 14:27:06|FIc:\users\epe\documents\github\polymer-pyrolysis-search\nist_pps\data\pepppb.cdf|CAC:\Users\epe\Documents\GitHub\polymer-pyrolysis-search\NIST_PPS\AMDIS\LIB\Local.cal
+NOISE: K=4.89 %1=7 MinAb=227 LoHi=10:815 Xnz=590 pk/u=0.118 SumAb=4.69e+009 Nulls=0
+LAST: |EL776|NC551  	TotTM=26.1                                                    
+0 Identified Compounds
+
+
+CALIB:
+3.4523 900
+4.8452 1000
+5.8437 1100
+6.6735 1200
+7.4102 1300
+8.088 1400
+8.7207 1500
+9.316 1600
+9.8812 1700
+10.417 1800
+10.9284 1900
+11.4162 2000
+11.8824 2100
+12.3293 2200
+12.7582 2300
+13.1706 2400
+13.5687 2500
+13.9503 2600
+14.3211 2700
+14.6776 2800
+15.0212 2900
+15.3554 3000
+15.6782 3100
+15.9924 3200
+16.2958 3300
+16.5913 3400
+16.8782 3500
+17.1615 3600
+17.4656 3700
+17.815 3800
+18.2202 3900
+18.6958 4000
+
+QA/QC:
+Instrument type: Quadrupole
+Scan Direction None
+Highest m/z detected = 815, high m/z setting = 820
+High noise level. Median Signal(Noise Level)/Threshold=2.6.
+Background (low vs. high retention time):
+  median low RT S/N=118, high RT S/N=369
+Solvent Tailing (m/z 84). Run begins at 0.01 min. Solvent falls below:
+  S/N=10 before run
+  S/N=5 at 0.03 min.
+  S/N=2 at 0.03 min.
+  S/N=1 at 0.03 min.
+Column Bleed (m/z 207):
+  median low RT S/N=0, high RT S/N=105
