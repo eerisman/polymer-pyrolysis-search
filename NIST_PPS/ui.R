@@ -27,7 +27,7 @@ ui <- fluidPage(
                   )
   ),
   
-  fluidRow(
+  fluidRow(style = "padding: 15px",
     column(4, uiOutput("polymer.struct")),
     column(8, uiOutput("pyrolyzate.struct"))       
   ),
