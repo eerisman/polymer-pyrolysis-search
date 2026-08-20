@@ -1,2 +1,7 @@
 log_NPPS.log
+NIST_PPS/AMDIS/LIB/Local.cal
+NIST_PPS/AMDIS/onsite.ini
+NIST_PPS/data
+NIST_PPS/results/
+
 

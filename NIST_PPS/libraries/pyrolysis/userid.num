@@ -170,3 +170,66 @@ ID #   DATE and TIME        NAME
 166    Dec 10 13:26:27 2025 SBMA trimer 1
 167    Dec 10 13:26:27 2025 SBMA trimer 2
 168    Dec 10 13:26:27 2025 SBMA trimer 3
+169    Aug 11 10:28:02 2026 2,2,4,4,6,6-Hexamethylcyclotrisiloxane
+170    Aug 11 10:28:22 2026 2,2,4,4,6,6,8,8-Octamethylcyclotetrasiloxane
+171    Aug 11 10:28:30 2026 2,2,4,4,6,6,8,8,10,10-Decamethylcyclopentasiloxane
+172    Aug 11 10:28:49 2026 2,2,4,4,6,6,8,8,10,10,12,12-Dodecamethylcyclohexasiloxane
+*83    Aug 12 09:58:36 2026 Phenol DELETED
+83     Aug 12 09:58:36 2026 Phenol
+*82    Aug 12 09:58:51 2026 p-Cresol DELETED
+82     Aug 12 09:58:52 2026 p-Cresol
+173    Aug 12 09:59:29 2026 1-Phenoxy-4-(prop-1-en-2-yl)benzene
+174    Aug 12 09:59:29 2026 1-Ethyl-4-phenoxybenzene
+175    Aug 12 09:59:29 2026 Diphenyl ether
+176    Aug 12 09:59:29 2026 4-[1-Methyl-1-(4-phenoxyphenyl)ethyl]phenol
+177    Aug 12 09:59:30 2026 2,2-Bis(4-phenoxyphenyl)propane
+178    Aug 12 09:59:30 2026 1-Methyl-4-phenoxybenzene
+*173   Aug 12 10:01:00 2026 1-Phenoxy-4-(prop-1-en-2-yl)benzene DELETED
+173    Aug 12 10:01:00 2026 1-Phenoxy-4-(prop-1-en-2-yl)benzene
+179    Aug 13 09:44:00 2026 2-(Phenylthio)dibenzothiophene
+180    Aug 13 09:44:00 2026 Dibenzothiophene
+181    Aug 13 09:44:00 2026 4-[(Dibenzo[b,d]thiophen-2-yl)sulfanyl]benzene-1-thiol
+182    Aug 13 09:44:00 2026 4,4'-Thiodibenzenethiol
+183    Aug 13 09:44:00 2026 1,1'-Thiobis[4-(phenylthio)benzene]
+184    Aug 13 09:44:00 2026 Diphenyl sulfide
+185    Aug 13 09:44:00 2026 1,4-Bis(phenylthio)benzene
+186    Aug 13 09:44:00 2026 2-Dibenzothiophenethiol
+187    Aug 13 09:44:00 2026 p-Benzenedithiol
+188    Aug 13 09:44:01 2026 4-[[4-(Phenylthio)phenyl]thio]benzenethiol
+189    Aug 13 09:44:01 2026 4-(Phenylsulfanyl)benzene-1-thiol
+190    Aug 13 09:44:01 2026 4-({4-[(Dibenzo[b,d]thiophen-2-yl)sulfanyl]phenyl}sulfanyl)benzene-1-thiol
+191    Aug 13 09:44:01 2026 Benzenethiol
+*173   Aug 13 09:44:27 2026 1-Phenoxy-4-(prop-1-en-2-yl)benzene DELETED
+173    Aug 13 09:44:27 2026 1-Phenoxy-4-(prop-1-en-2-yl)benzene
+*174   Aug 13 09:45:09 2026 1-Ethyl-4-phenoxybenzene DELETED
+174    Aug 13 09:45:09 2026 1-Ethyl-4-phenoxybenzene
+*175   Aug 13 09:45:20 2026 Diphenyl ether DELETED
+175    Aug 13 09:45:20 2026 Diphenyl ether
+*176   Aug 13 09:45:23 2026 4-[1-Methyl-1-(4-phenoxyphenyl)ethyl]phenol DELETED
+176    Aug 13 09:45:23 2026 4-[1-Methyl-1-(4-phenoxyphenyl)ethyl]phenol
+*177   Aug 13 09:45:28 2026 2,2-Bis(4-phenoxyphenyl)propane DELETED
+177    Aug 13 09:45:28 2026 2,2-Bis(4-phenoxyphenyl)propane
+*178   Aug 13 09:45:31 2026 1-Methyl-4-phenoxybenzene DELETED
+178    Aug 13 09:45:31 2026 1-Methyl-4-phenoxybenzene
+*83    Aug 13 14:08:31 2026 Phenol DELETED
+83     Aug 13 14:08:31 2026 Phenol
+*88    Aug 13 14:08:47 2026 Benzene DELETED
+88     Aug 13 14:08:47 2026 Benzene
+192    Aug 13 14:09:17 2026 Dibenzofuran
+193    Aug 13 14:09:28 2026 [4-(4-hydroxyphenoxy)phenyl](4-phenoxyphenyl)methanone
+194    Aug 13 14:09:39 2026 [4-(4-Hydroxyphenoxy)phenyl](4-hydroxyphenyl)methanone
+195    Aug 13 14:09:45 2026 4-Phenoxyphenol
+*192   Aug 19 10:26:59 2026 Dibenzofuran DELETED
+192    Aug 19 10:26:59 2026 Dibenzofuran
+*192   Aug 19 10:33:04 2026 Dibenzofuran DELETED
+192    Aug 19 10:33:04 2026 Dibenzofuran
+*175   Aug 19 10:34:57 2026 Diphenyl ether DELETED
+175    Aug 19 10:34:57 2026 Diphenyl ether
+*88    Aug 19 10:35:16 2026 Benzene DELETED
+88     Aug 19 10:35:17 2026 Benzene
+*83    Aug 19 10:35:32 2026 Phenol DELETED
+83     Aug 19 10:35:33 2026 Phenol
+196    Aug 19 10:38:51 2026 1,1'-[Sulfonylbis(4,1-phenyleneoxy)]dibenzene
+197    Aug 19 10:39:03 2026 1-(Benzenesulfonyl)-4-phenoxybenzene
+198    Aug 19 10:39:12 2026 4-(4-Phenoxybenzene-1-sulfonyl)phenol
+199    Aug 19 10:39:22 2026 2-(4-Phenoxybenzene-1-sulfonyl)dibenzo[b,d]furan

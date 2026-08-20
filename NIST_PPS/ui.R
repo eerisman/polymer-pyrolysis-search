@@ -8,7 +8,7 @@ ui <- fluidPage(
   
     fluidRow(
       column(2,
-          shinyFilesButton('file', '*.d or netcdf file select', 'Please select a data file', FALSE),
+          shinyFilesButton('file', '*.d single quad or netcdf file select', 'Please select a data file', FALSE),
           textOutput("path"),
           actionButton("RI", "Create RI calibration", class = "btn-success"),
           sliderInput('mfc', "Match Factor Cutoff", 700, min = 500, max = 999, step = 5 ),

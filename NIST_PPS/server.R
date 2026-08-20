@@ -28,7 +28,8 @@ server <- function(input, output, session) {
     output$path <- renderText({datapath()})
     output$system <- renderText({if (length(datapath()) < 1){NULL
     }else if (grepl(".*\\.D", datapath(), ignore.case = T) & 
-                !file.exists(paste0(datapath(),"/tic_front.csv"))){"Tic not found"}
+                !file.exists(paste0(datapath(),"/tic_front.csv")) & !file.exists(paste0(datapath(),"/tic_back.csv"))
+              ){"Tic not found"}
           })
       
     #get tic data
@@ -36,9 +37,12 @@ server <- function(input, output, session) {
             if (length(datapath()) < 1) {NULL
                 }else if (file.exists(paste0(datapath(),"/tic_front.csv"))){
                 read.csv(paste0(datapath(),"/tic_front.csv"), skip = 2, header = F, col.names = c("time", "abund"))
+                }else if (file.exists(paste0(datapath(),"/tic_back.csv"))){
+                read.csv(paste0(datapath(),"/tic_back.csv"), skip = 2, header = F, col.names = c("time", "abund"))
                 }else if (grepl(".*\\.CDF", datapath(), ignore.case = T)){
                 data.header <- header(openMSfile(datapath()))
-                cbind(data.header$retentionTime/60, data.header$totIonCurrent)}
+                cbind(data.header$retentionTime/60, data.header$totIonCurrent)
+                }
            })
     
     #checking for RI cal file
