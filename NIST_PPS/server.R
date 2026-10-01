@@ -117,21 +117,36 @@ server <- function(input, output, session) {
       output$polymer <- DT::renderDataTable(results()[[1]], selection = 'single', rownames = FALSE)
       output$peaks <- DT::renderDataTable(results()[[2]][,c(12,11,1,2,4:5,7:10,13)], selection = 'single', rownames = FALSE)
       
-      output$polymer.struct <- renderUI(
-           if (is.numeric(input$polymer_rows_selected)){
-            polymer.name <- sub(" \\(.*\\)", "", results()[[1]][input$polymer_rows_selected,1])
-            polymer.path <- paste0("polymers/",polymer.name,".svg")
-            img(src = polymer.path, height = 100)
-       }else{NULL}
-         )
+      output$Search.polymer <- renderUI({tags$h2("Polymer Search Results", style = "test-align: center;")})
       
-      output$pyrolyzate.struct <- renderUI(
-        if (is.numeric(input$peaks_rows_selected)){
-          pyrolyzate.index <- results()[[2]][input$peaks_rows_selected,3]
-          pyrolyzate.path <- paste0("pyrolyzates/",pyrolyzate.index,".svg")
-          img(src = pyrolyzate.path, height = 100)
-        }else{NULL}
-      )
+      output$Search.pyrolyzate <- renderUI({tags$h2("Pyrolyzate Search Results", style = "test-align: center;")})
+      
+      output$polymer.struct <- renderUI({
+        req(input$polymer_rows_selected)
+          polymer.name <- sub(" \\(.*\\)", "", results()[[1]][input$polymer_rows_selected,1])
+          polymer.path <- paste0("polymers/",polymer.name,".svg")
+          img(src = polymer.path, height = 100)
+        })
+      
+      output$pyrolyzate.struct <- renderUI({
+        req(input$peaks_rows_selected)
+        pyrolyzate.index <- results()[[2]][input$peaks_rows_selected,3]
+        pyrolyzate.path <- paste0("pyrolyzates/",pyrolyzate.index,".svg")
+        return(img(src = pyrolyzate.path, height = 100))
+      })
+      
+      output$expected <- renderUI({
+        req(input$polymer_rows_selected)
+        h2("Expected Pyrolyzates", style = "test-align: center;")
+                })
+      output$pyrolyzates.expected <- DT::renderDT({
+        req(input$polymer_rows_selected)
+          polymer.name <- sub(" \\(.*\\)", "", results()[[1]][input$polymer_rows_selected,1])
+          markers <- grep(polymer.name, results()[[4]])
+          pyrolyzates.expected <- NULL
+          for (i in 1:length(markers)){pyrolyzates.expected <- rbind(pyrolyzates.expected, as.data.frame(results()[[4]][[markers[i]]][1:4]))}
+          return(pyrolyzates.expected)
+        })
       
       output$spectra.plotly <- renderPlotly({
          s <- input$peaks_rows_selected

@@ -40,7 +40,7 @@ mssearch <- function(x, snc, mfc, rip){
   #subset results for modmf
   results <- subset(results, results$modmf >mfc)
   results <- results[order(results$qindx, -results$modmf),]
-  write.csv(results, "./results/searchresults.csv", row.names = FALSE)
+  write.csv(results, "./results/rawsearchresults.csv", row.names = FALSE)
   #top hit
   tophit <- results[!duplicated(results$qindx),]
   #ordering by modmf
@@ -55,7 +55,8 @@ mssearch <- function(x, snc, mfc, rip){
   peaks <- rbind(tophit, otherhits)
   peaks <- peaks[order(peaks$qindx, -peaks$modmf),]
   peaks[,c(2,7,8,9,10)] <- round(peaks[,c(2,7,8,9,10)], 2)
-  write.csv(peaks, "./results/peaksresults.csv", row.names = FALSE)
+  colnames(peaks) = c("Name", "Match Factor", "idx", "Formula", "Molecular Mass", "qindx", "Delta RI", "RI tolerance", "Match Factor Penalty", "Modified Match Factor", "Retention Index (RI)", "Retention Time")
+  write.csv(peaks, "./results/filteredsearchresults.csv", row.names = FALSE)
   for (i in 1:nrow(peaks)){peaks$polymer[i] <- lib[[peaks[i,3]]]$polymer}#polymer generate polymer list
   polymer.list <- unique(unlist(strsplit(peaks$polymer, "; ")))#unique polymers
   #polymer attribution
@@ -66,12 +67,15 @@ mssearch <- function(x, snc, mfc, rip){
   for (i in 1:length(polymer.list)){libcount[i] <- as.integer(gsub(".*\\((.+)\\)", "\\1",polymer.list[i]))}
   # average modmf
   meanmf <- NULL
-  for (i in 1:length(polymer.list)){meanmf[i] <- mean(peaks$modmf[grep(gsub("\\(.*", "",polymer.list[i]),peaks$polymer)])}
+  for (i in 1:length(polymer.list)){meanmf[i] <- mean(peaks$'Modified Match Factor'[grep(gsub("\\(.*", "",polymer.list[i]),peaks$polymer)])}
   #combine polymer list
   polymer.list <- cbind.data.frame(polymer.list, count, libcount, meanmf)
   polymer.list$score <- polymer.list$meanmf*(polymer.list$count/polymer.list$libcount)
   polymer.list[,c(4,5)] <- round(polymer.list[,c(4,5)], 2)##rounding
   polymer.list <- polymer.list[order(-polymer.list$score),]
+  polymer.list <- as.data.frame(lapply(polymer.list, function(x){gsub(" \\([0-9]*\\)", "", x)}))
+  colnames(polymer.list) = c("Polymer", "Markers Found", "Markers Expected", "Mean Match Factor", "Final Score")
   write.csv(polymer.list, "./results/polymerlist.csv", row.names = FALSE)
+  peaks$polymer <- gsub(" \\([0-9]*\\)", "", peaks$polymer)
   return(list(polymer.list,peaks, query, lib))
 }

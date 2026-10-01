@@ -33,7 +33,20 @@ ui <- fluidPage(
   ),
   
   fluidRow(
+    column(4, uiOutput("Search.polymer")),
+    column(8, uiOutput("Search.pyrolyzate"))
+  ),
+  
+  fluidRow(
       column(4, DT::dataTableOutput("polymer")),
       column(8, DT::dataTableOutput("peaks"))
-        )
+        ),
+  
+  fluidRow(
+    column(4, uiOutput("expected"))
+  ),
+  
+    fluidRow(
+      column(4, DT::dataTableOutput("pyrolyzates.expected"))
+  )
   )
