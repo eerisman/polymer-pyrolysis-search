@@ -5,7 +5,9 @@ ui <- fluidPage(
   tags$head(
     tags$style(HTML("
       .well { padding: 12px; margin-bottom: 12px; background-color: #f8f9fa; border: 1px solid #e9ecef; border-radius: 6px; }
-      .dataTables_wrapper { font-size: 13px; }
+      /* Ensure DataTables container and tables stay within card boundaries and support horizontal scroll */
+      .dataTables_wrapper { font-size: 13px; overflow-x: auto; max-width: 100%; }
+      table.dataTable { width: 100% !important; }
       h4, h5 { color: #2c3e50; font-weight: 600; margin-top: 2px; }
       .btn-custom { font-weight: bold; width: 100%; }
       /* Ensure SVG structure images resize cleanly and never extend off screen */
