@@ -37,6 +37,11 @@ ui <- fluidPage(
         div(style = "font-size: 11px; font-weight: bold; margin-top: 4px;", textOutput("system2"))
       ),
       div(class = "well",
+        h4("AMDIS Deconvolution"),
+        actionButton("amdis", "Run AMDIS", class = "btn-warning btn-sm btn-custom"),
+        div(style = "font-size: 11px; font-weight: bold; margin-top: 4px;", textOutput("amdis_status"))
+      ),
+      div(class = "well",
         h4("Parameters"),
         sliderInput('snc', "S/N Cutoff", 50, min = 3, max = 1000, ticks = FALSE),
         sliderInput('mfc', "Match Factor Cutoff", 700, min = 500, max = 999, step = 5, ticks = FALSE),
@@ -44,7 +49,7 @@ ui <- fluidPage(
       ),
       div(class = "well",
         actionButton("search", "Polymer Search", class = "btn-success btn-custom"),
-        textOutput("system3")
+        div(style = "font-size: 11px; font-weight: bold; margin-top: 4px;", textOutput("system3"))
       )
     ),
 
