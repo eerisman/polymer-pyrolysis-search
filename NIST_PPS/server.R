@@ -256,11 +256,11 @@ server <- function(input, output, session) {
           stringsAsFactors = FALSE
         )
       }))
-      expected_df
+      expected_df[order(expected_df$RI),]
     } else {
       NULL
     }
-  }, options = list(scrollX = TRUE, autoWidth = TRUE))
+  }, selection = 'single', rownames = FALSE, options = list(scrollX = TRUE, autoWidth = TRUE))
 
   output$spectra.plotly <- renderPlotly({
     s <- input$peaks_rows_selected
