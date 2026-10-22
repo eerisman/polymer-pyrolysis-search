@@ -13,13 +13,16 @@ elu2mspec <- function(x){
   temp <- gsub("RT", "\\\nRT: ", temp) #format for RT
   temp <- gsub("RI", "\\\nRI: ", temp) #new line for Retention index
   temp[1] <- sub("\\\n\\\n", "", temp[1]) #remove leading 2 blank lines
-  for (i in 1:length(temp)) {temp[i] <- sub("NAME:", paste("NAME: Peak",i), temp[i])} #add name to the compounds
-  for (i in 1:length(temp)) {temp[i] <- sub("NUM PEAKS: [0-9]*", paste0("\\\nNUM PEAKS: ", length(gregexpr("\\(", temp[i])[[1]]), "\\\n"), temp[i])}
+  if (length(temp) > 0) {
+    for (i in seq_along(temp)) {temp[i] <- sub("NAME:", paste("NAME: Peak",i), temp[i])} #add name to the compounds
+    for (i in seq_along(temp)) {temp[i] <- sub("NUM PEAKS: [0-9]*", paste0("\\\nNUM PEAKS: ", length(gregexpr("\\(", temp[i])[[1]]), "\\\n"), temp[i])}
+  }
   temp <- gsub(" )", ")", temp)
   temp <- c(temp, "\n")
-  y <- gsub(".*/", "", x)
-  y <- sub("ELU", "MSPEC", y)
+  filename <- basename(x)
+  y <- sub("\\.[^.]+$", ".MSPEC", filename, ignore.case = TRUE)
   y <- gsub(" ", "_", y)
+  dir.create("./data", showWarnings = FALSE, recursive = TRUE)
   cat(temp, file = paste0("./data/", y))
   return(y)
   }
