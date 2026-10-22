@@ -114,8 +114,8 @@ server <- function(input, output, session) {
       elupath <- if (file.exists(gsub("\\..*",".ELU", datapath()))){gsub("\\..*",".ELU", datapath())} #modified
       elu2mspec(elupath)
       results(mssearch(paste0("./data/", gsub(".*/(.+)\\..*", "\\1", datapath()),".MSPEC"), input$snc, input$mfc, input$rip))
-      output$polymer <- DT::renderDataTable(results()[[1]], selection = 'single', rownames = FALSE)
-      output$peaks <- DT::renderDataTable(results()[[2]][,c(12,11,1,2,4:5,7:10,13)], selection = 'single', rownames = FALSE)
+      output$polymer <- DT::renderDataTable(results()[[1]], selection = 'single', rownames = FALSE, options = list(scrollX = TRUE, autoWidth = TRUE))
+      output$peaks <- DT::renderDataTable(results()[[2]][,c(12,11,1,2,4:5,7:10,13)], selection = 'single', rownames = FALSE, options = list(scrollX = TRUE, autoWidth = TRUE))
       
       output$Search.polymer <- renderUI({tags$h2("Polymer Search Results", style = "test-align: center;")})
       
@@ -146,7 +146,7 @@ server <- function(input, output, session) {
           pyrolyzates.expected <- NULL
           for (i in 1:length(markers)){pyrolyzates.expected <- rbind(pyrolyzates.expected, as.data.frame(results()[[4]][[markers[i]]][1:4]))}
           return(pyrolyzates.expected)
-        })
+        }, options = list(scrollX = TRUE, autoWidth = TRUE))
       
       output$spectra.plotly <- renderPlotly({
          s <- input$peaks_rows_selected
