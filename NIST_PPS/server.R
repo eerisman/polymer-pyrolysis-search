@@ -43,7 +43,7 @@ server <- function(input, output, session) {
     
   # display data path
   output$path <- renderText({ datapath() })
-  output$system <- renderText({
+  output$tic_status <- renderText({
     if (length(datapath()) < 1 || is.na(datapath()) || datapath() == "") {
       NULL
     } else if (grepl(".*\\.D", datapath(), ignore.case = TRUE) &
@@ -91,7 +91,7 @@ server <- function(input, output, session) {
     }
     command <- paste0(gsub("/", "\\\\", command), " \\/e")
     system(command)
-    output$system3 <- renderText("AMDIS complete")
+    output$ri_status <- renderText("AMDIS complete")
 
     elupath <- sub("\\.[^/\\\\]+$", ".ELU", datapath())
     if (file.exists(elupath)) {
@@ -103,7 +103,7 @@ server <- function(input, output, session) {
         ri.cal(read.csv("./AMDIS/LIB/Local.cal", sep = "", header = FALSE))
       }
     } else {
-      output$system2 <- renderText("No ELU")
+      output$ri_status <- renderText("No ELU")
     }
   })
 
@@ -175,7 +175,7 @@ server <- function(input, output, session) {
   })
 
   # display RI found message
-  output$system2 <- renderText({ rifile() })
+  output$ri_status <- renderText({ rifile() })
 
   # Function to run AMDIS deconvolution
   run_amdis_deconv <- function() {
@@ -217,14 +217,14 @@ server <- function(input, output, session) {
     if (!file.exists(mspec_path)) {
       amdis_ok <- run_amdis_deconv()
       if (!amdis_ok || !file.exists(mspec_path)) {
-        output$system3 <- renderText("AMDIS deconvolution failed")
+        output$search_status <- renderText("No AMDIS deconvolution data")
         return()
       }
     }
 
     res <- mssearch(mspec_path, input$snc, input$mfc, input$rip)
     results(res)
-    output$system3 <- renderText("Search complete")
+    output$search_status <- renderText("Search complete")
   })
 
   # Top-level reactive UI and outputs

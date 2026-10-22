@@ -29,12 +29,12 @@ ui <- fluidPage(
         h4("Data File"),
         shinyFilesButton('file', 'Select File (*.d / *.cdf)', 'Please select a data file', FALSE, class = "btn-primary btn-sm btn-custom"),
         div(style = "font-size: 11px; color: #555; word-break: break-all; margin-top: 5px;", textOutput("path")),
-        textOutput("system")
+        textOutput("tic_status")
       ),
       div(class = "well",
         h4("RI Calibration"),
         actionButton("RI", "Create RI Calibration", class = "btn-info btn-sm btn-custom"),
-        div(style = "font-size: 11px; font-weight: bold; margin-top: 4px;", textOutput("system2"))
+        div(style = "font-size: 11px; font-weight: bold; margin-top: 4px;", textOutput("ri_status"))
       ),
       div(class = "well",
         h4("AMDIS Deconvolution"),
@@ -49,7 +49,7 @@ ui <- fluidPage(
       ),
       div(class = "well",
         actionButton("search", "Polymer Search", class = "btn-success btn-custom"),
-        div(style = "font-size: 11px; font-weight: bold; margin-top: 4px;", textOutput("system3"))
+        div(style = "font-size: 11px; font-weight: bold; margin-top: 4px;", textOutput("search_status"))
       )
     ),
 
