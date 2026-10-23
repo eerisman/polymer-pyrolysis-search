@@ -2,7 +2,7 @@
 # library mspec must be "./libraries/pyrolysis.MSPEC"
 # returns nested list of polymer.list as polymer result, peaks and pyrolyzate results,
 # query and lib as mssearchr PreprocessedMassSpectra
-mssearch <- function(x, snc, mfc, rip){
+mssearch <- function(x, snc, mfc, rip, waive_out_of_range = TRUE){
   if (!file.exists(x)) return(NULL)
   query <- PreprocessMassSpectra(ReadMsp(x))  
   lib <- PreprocessMassSpectra(ReadMsp("./libraries/pyrolysis.MSPEC"))
@@ -66,6 +66,19 @@ mssearch <- function(x, snc, mfc, rip){
   results$dri <- abs(query_ri_vec - lib_ri_vec)
   results$tol <- query_ri_vec / 100
   results$mfp <- ifelse(results$dri < results$tol, 0, rip * (results$dri - results$tol) / results$tol)
+
+  # RI values outside calibration range are suspect and should not be penalized if selected
+  if (isTRUE(waive_out_of_range) && file.exists("./AMDIS/LIB/Local.cal")) {
+    cal <- tryCatch(read.csv("./AMDIS/LIB/Local.cal", sep = "", header = FALSE), error = function(e) NULL)
+    if (!is.null(cal) && nrow(cal) > 0 && ncol(cal) >= 2) {
+      min_ri <- min(cal[, 2], na.rm = TRUE)
+      max_ri <- max(cal[, 2], na.rm = TRUE)
+      outside_cal <- (query_ri_vec < min_ri | query_ri_vec > max_ri | lib_ri_vec < min_ri | lib_ri_vec > max_ri)
+      outside_cal[is.na(outside_cal)] <- TRUE
+      results$mfp[outside_cal] <- 0
+    }
+  }
+
   results$modmf <- results$mf - results$mfp
   results$ri <- query_ri_vec
   results$rt <- query_rt_vec
