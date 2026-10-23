@@ -217,7 +217,7 @@ server <- function(input, output, session) {
       }
     }
 
-    res <- mssearch(mspec_path, input$snc, input$mfc, input$rip)
+    res <- mssearch(mspec_path, input$snc, input$mfc, input$rip, input$waive_out_of_range)
     results(res)
     output$search_status <- renderText("Search complete")
   }

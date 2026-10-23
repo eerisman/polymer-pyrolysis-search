@@ -45,7 +45,8 @@ ui <- fluidPage(
         h4("Parameters"),
         sliderInput('snc', "S/N Cutoff", 50, min = 3, max = 1000, ticks = FALSE),
         sliderInput('mfc', "Match Factor Cutoff", 700, min = 500, max = 999, step = 5, ticks = FALSE),
-        sliderInput('rip', "RI Penalty Rate", 50, min = 10, max = 1000, step = 5, ticks = FALSE)
+        sliderInput('rip', "RI Penalty Rate", 50, min = 10, max = 1000, step = 5, ticks = FALSE),
+        checkboxInput('waive_out_of_range', "Waive RI penalty outside calibration range", value = TRUE)
       ),
       div(class = "well",
         actionButton("search", "Polymer Search", class = "btn-success btn-custom"),
