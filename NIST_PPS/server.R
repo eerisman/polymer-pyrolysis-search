@@ -201,13 +201,8 @@ server <- function(input, output, session) {
     }
   }
 
-  # Dedicated AMDIS button action
-  observeEvent(input$amdis, {
-    run_amdis_deconv()
-  })
-
-  # Polymer search on data (uses cached MSPEC if available)
-  observeEvent(input$search, {
+  # Function to perform polymer search
+  perform_search <- function() {
     req(datapath())
     if (length(datapath()) < 1 || is.na(datapath()) || datapath() == "") return()
 
@@ -225,6 +220,18 @@ server <- function(input, output, session) {
     res <- mssearch(mspec_path, input$snc, input$mfc, input$rip)
     results(res)
     output$search_status <- renderText("Search complete")
+  }
+
+  # Dedicated AMDIS button action (runs AMDIS then automatically executes search)
+  observeEvent(input$amdis, {
+    if (run_amdis_deconv()) {
+      perform_search()
+    }
+  })
+
+  # Polymer search on data (uses cached MSPEC if available)
+  observeEvent(input$search, {
+    perform_search()
   })
 
   # Top-level reactive UI and outputs
