@@ -19,7 +19,7 @@ ui <- fluidPage(
   # Header Bar
   fluidRow(style = "background-color: #2c3e50; color: white; padding: 10px 20px; margin-bottom: 15px; border-radius: 4px;",
     column(8, h2("NIST Polymer Pyrolysis Search", style = "margin: 0; color: white;")),
-    column(4, img(height = 45, src = "logo.png", align = "right"))
+    column(4, img(height = 45, src = "logo.svg", align = "right"))
   ),
 
   fluidRow(
