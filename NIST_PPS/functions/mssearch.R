@@ -88,7 +88,7 @@ mssearch <- function(x, snc, mfc, rip, waive_out_of_range = TRUE){
 
   results <- results[order(results$qindx, -results$modmf),]
 
-  # Setup unique folder and file naming specifying parameters used
+  # Setup unique parameter-and-timestamp-named subfolder in ./results/
   sample_name <- tools::file_path_sans_ext(basename(x))
   if (is.null(sample_name) || sample_name == "") sample_name <- "search"
   timestamp_str <- format(Sys.time(), "%Y%m%d_%H%M%S")
@@ -114,12 +114,10 @@ mssearch <- function(x, snc, mfc, rip, waive_out_of_range = TRUE){
     paste("RI Penalty Rate (rip):", rip),
     paste("Waive RI Penalty Outside Calibration Range (waive_out_of_range):", isTRUE(waive_out_of_range))
   )
-  writeLines(param_txt, file.path(run_dir, "search_parameters.txt"))
+  writeLines(param_txt, file.path(run_dir, sprintf("%s_search_parameters_%s_%s.txt", sample_name, param_suffix, timestamp_str)))
 
-  # Write raw search results to unique subfolder, unique file, and standard root CSV
-  write.csv(results, file.path(run_dir, "rawsearchresults.csv"), row.names = FALSE)
-  write.csv(results, file.path("./results", sprintf("%s_rawsearchresults_%s_%s.csv", sample_name, param_suffix, timestamp_str)), row.names = FALSE)
-  write.csv(results, "./results/rawsearchresults.csv", row.names = FALSE)
+  # Write raw search results parameter- and time-stamped inside the unique subfolder
+  write.csv(results, file.path(run_dir, sprintf("%s_rawsearchresults_%s_%s.csv", sample_name, param_suffix, timestamp_str)), row.names = FALSE)
 
   # top hit
   tophit <- results[!duplicated(results$qindx),]
@@ -143,10 +141,8 @@ mssearch <- function(x, snc, mfc, rip, waive_out_of_range = TRUE){
   peaks[, c(2, 7, 8, 9, 10)] <- round(peaks[, c(2, 7, 8, 9, 10)], 2)
   colnames(peaks) <- c("Name", "Match Factor", "idx", "Formula", "Molecular Mass", "qindx", "Delta RI", "RI tolerance", "Match Factor Penalty", "Modified Match Factor", "Retention Index (RI)", "Retention Time")
 
-  # Write filtered search results to unique subfolder, unique file, and standard root CSV
-  write.csv(peaks, file.path(run_dir, "filteredsearchresults.csv"), row.names = FALSE)
-  write.csv(peaks, file.path("./results", sprintf("%s_filteredsearchresults_%s_%s.csv", sample_name, param_suffix, timestamp_str)), row.names = FALSE)
-  write.csv(peaks, "./results/filteredsearchresults.csv", row.names = FALSE)
+  # Write filtered search results parameter- and time-stamped inside the unique subfolder
+  write.csv(peaks, file.path(run_dir, sprintf("%s_filteredsearchresults_%s_%s.csv", sample_name, param_suffix, timestamp_str)), row.names = FALSE)
 
   # polymer list generation
   peaks$polymer <- sapply(peaks$idx, function(idx_val) {
@@ -195,10 +191,8 @@ mssearch <- function(x, snc, mfc, rip, waive_out_of_range = TRUE){
   polym_df <- polym_df[order(-polym_df$`Final Score`), ]
   colnames(polym_df) <- c("Polymer", "Markers Found", "Markers Expected", "Mean Match Factor", "Final Score")
 
-  # Write polymer list results to unique subfolder, unique file, and standard root CSV
-  write.csv(polym_df, file.path(run_dir, "polymerlist.csv"), row.names = FALSE)
-  write.csv(polym_df, file.path("./results", sprintf("%s_polymerlist_%s_%s.csv", sample_name, param_suffix, timestamp_str)), row.names = FALSE)
-  write.csv(polym_df, "./results/polymerlist.csv", row.names = FALSE)
+  # Write polymer list results parameter- and time-stamped inside the unique subfolder
+  write.csv(polym_df, file.path(run_dir, sprintf("%s_polymerlist_%s_%s.csv", sample_name, param_suffix, timestamp_str)), row.names = FALSE)
 
   peaks$polymer <- sub("\\s*\\([0-9]+\\)$", "", peaks$polymer)
 
