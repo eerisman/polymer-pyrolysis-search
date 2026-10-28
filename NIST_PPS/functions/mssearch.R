@@ -32,11 +32,6 @@ mssearch <- function(x, snc, mfc, rip, waive_out_of_range = TRUE){
   query <- query[which(sn > snc)]
   if (length(query) == 0) return(list(empty_polymer, empty_peaks, query, lib))
 
-  # remove duplicate RTs
-  rt <- sapply(query, function(q) as.numeric(q$rt))
-  query <- query[!duplicated(rt)]
-  if (length(query) == 0) return(list(empty_polymer, empty_peaks, query, lib))
-  
   # library search
   results <- LibrarySearch(query, lib, n_hits = 20, hitlist_columns = c("name", "formula", "mw"))
   if (length(results) == 0) return(list(empty_polymer, empty_peaks, query, lib))
@@ -84,6 +79,12 @@ mssearch <- function(x, snc, mfc, rip, waive_out_of_range = TRUE){
   results$rt <- query_rt_vec
 
   results <- subset(results, results$modmf > mfc)
+  if (nrow(results) == 0) return(list(empty_polymer, empty_peaks, query, lib))
+
+  # remove duplicates after library searching dropping the duplicate with lower modmf
+  results_ord <- results[order(-results$modmf), ]
+  best_qindx_per_rt <- results_ord$qindx[!duplicated(results_ord$rt)]
+  results <- results[results$qindx %in% best_qindx_per_rt, ]
   if (nrow(results) == 0) return(list(empty_polymer, empty_peaks, query, lib))
 
   results <- results[order(results$qindx, -results$modmf),]
