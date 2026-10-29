@@ -309,6 +309,9 @@ server <- function(input, output, session) {
     }))
 
     if (length(markers) > 0) {
+      peaks_df <- results()[[2]]
+      found_indices <- if (!is.null(peaks_df) && nrow(peaks_df) > 0 && "idx" %in% colnames(peaks_df)) peaks_df$idx else integer(0)
+
       expected_df <- do.call(rbind, lapply(markers, function(m) {
         item <- lib_list[[m]]
         data.frame(
@@ -316,10 +319,24 @@ server <- function(input, output, session) {
           Formula = ifelse(is.null(item$formula), "", item$formula),
           MW = ifelse(is.null(item$mw), "", item$mw),
           RI = ifelse(is.null(item$ri), "", item$ri),
+          Status = ifelse(m %in% found_indices, "Found", "Not Found"),
           stringsAsFactors = FALSE
         )
       }))
-      expected_df[order(expected_df$RI),]
+      expected_df <- expected_df[order(expected_df$RI),]
+
+      DT::datatable(
+        expected_df,
+        selection = 'single',
+        rownames = FALSE,
+        options = list(scrollX = TRUE, autoWidth = TRUE)
+      ) %>%
+        DT::formatStyle(
+          'Status',
+          target = 'row',
+          backgroundColor = DT::styleEqual(c("Not Found", "Found"), c("#f8d7da", "#ffffff")),
+          color = DT::styleEqual(c("Not Found", "Found"), c("#721c24", "#212529"))
+        )
     } else {
       NULL
     }
