@@ -2,7 +2,7 @@
 # library mspec must be "./libraries/pyrolysis.MSPEC"
 # returns nested list of polymer.list as polymer result, peaks and pyrolyzate results,
 # query and lib as mssearchr PreprocessedMassSpectra
-mssearch <- function(x, snc, mfc, rip, waive_out_of_range = TRUE){
+mssearch <- function(x, snc, mfc, rip, waive_out_of_range = TRUE, app_version = "v1.0.0"){
   if (!file.exists(x)) return(NULL)
   query <- PreprocessMassSpectra(ReadMsp(x))  
   lib <- PreprocessMassSpectra(ReadMsp("./libraries/pyrolysis.MSPEC"))
@@ -107,6 +107,7 @@ mssearch <- function(x, snc, mfc, rip, waive_out_of_range = TRUE){
   param_txt <- c(
     "NIST Polymer Pyrolysis Search - Run Parameters",
     "==============================================",
+    paste("App Version:", app_version),
     paste("Date & Time:", Sys.time()),
     paste("Sample Name:", sample_name),
     paste("Input MSPEC File:", x),
