@@ -305,7 +305,12 @@ server <- function(input, output, session) {
     lib_list <- results()[[4]]
 
     markers <- which(sapply(lib_list, function(l) {
-      if (!is.null(l$polymer)) grepl(polymer.name, l$polymer, fixed = TRUE) else FALSE
+      if (!is.null(l$polymer) && nzchar(l$polymer)) {
+        p_names <- sub("\\s*\\([0-9]+\\)$", "", unlist(strsplit(l$polymer, ";\\s*")))
+        polymer.name %in% p_names
+      } else {
+        FALSE
+      }
     }))
 
     if (length(markers) > 0) {

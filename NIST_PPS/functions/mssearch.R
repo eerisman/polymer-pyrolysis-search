@@ -168,7 +168,11 @@ mssearch <- function(x, snc, mfc, rip, waive_out_of_range = TRUE, app_version = 
 
   for (i in seq_along(polymer.list)) {
     base_name <- base_names[i]
-    matched_rows <- which(sapply(peaks$polymer, function(p_str) grepl(base_name, p_str, fixed = TRUE)))
+    matched_rows <- which(sapply(peaks$polymer, function(p_str) {
+      if (is.null(p_str) || !nzchar(p_str)) return(FALSE)
+      p_names <- sub("\\s*\\([0-9]+\\)$", "", unlist(strsplit(p_str, ";\\s*")))
+      base_name %in% p_names
+    }))
     count[i] <- length(matched_rows)
 
     m <- regmatches(polymer.list[i], regexec("\\(([0-9]+)\\)$", polymer.list[i]))[[1]]
