@@ -138,7 +138,7 @@ ui <- fluidPage(
             div(class = "help-card",
               h3(paste("NIST Polymer Pyrolysis Search (NPPS)", APP_VERSION), style = "margin-top: 0; color: #1a202c;"),
               p("The NIST Polymer Pyrolysis Search application is designed for analyzing Pyrolysis Gas Chromatography / Mass Spectrometry (Py-GC/MS) data to identify polymers by their major pyrolyzates.  
-                See the following paper in Environmental Science & Technology for more information."),  tags$a(href = "https://doi.org/10.1021/acs.est.5c18872", "https://doi.org/10.1021/acs.est.5c18872") 
+                See the following paper in Environmental Science & Technology for more information.",  tags$a(href = "https://doi.org/10.1021/acs.est.5c18872", "https://doi.org/10.1021/acs.est.5c18872")) 
             )  
           )
         ),
