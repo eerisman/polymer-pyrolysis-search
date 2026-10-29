@@ -27,7 +27,7 @@ ui <- fluidPage(
     column(8,
       h2(
         "NIST Polymer Pyrolysis Search",
-        span("v1.0.0", style = "font-size: 14px; font-weight: normal; color: #bdc3c7; margin-left: 10px; vertical-align: middle;"),
+        span(APP_VERSION, style = "font-size: 14px; font-weight: normal; color: #bdc3c7; margin-left: 10px; vertical-align: middle;"),
         style = "margin: 0; color: white;"
       )
     ),
@@ -136,7 +136,7 @@ ui <- fluidPage(
         fluidRow(
           column(12,
             div(class = "help-card",
-              h3("NIST Polymer Pyrolysis Search (NPPS) v1.0.0", style = "margin-top: 0; color: #1a202c;"),
+              h3(paste("NIST Polymer Pyrolysis Search (NPPS)", APP_VERSION), style = "margin-top: 0; color: #1a202c;"),
               p("The NIST Polymer Pyrolysis Search application is designed for analyzing Pyrolysis Gas Chromatography / Mass Spectrometry (Py-GC/MS) data to search, identify, and quantify polymers and pyrolyzates in query samples.")
             )
           )
@@ -212,7 +212,7 @@ ui <- fluidPage(
               h4("Exported Search Results & File Location"),
               p("Each search automatically creates a unique parameter-and-timestamp-named subfolder inside ", tags$code("./results/"), " containing:"),
               tags$ul(style = "padding-left: 20px;",
-                tags$li(tags$code("*_search_parameters_*.txt"), ": Summary of search parameters, date/time, and application version (", tags$code("v1.0.0"), ")."),
+                tags$li(tags$code("*_search_parameters_*.txt"), paste0(": Summary of search parameters, date/time, and application version (", APP_VERSION, ").")),
                 tags$li(tags$code("*_rawsearchresults_*.csv"), ": Unfiltered raw pyrolyzate library hits."),
                 tags$li(tags$code("*_filteredsearchresults_*.csv"), ": Filtered hitlist sorted by modified match factor."),
                 tags$li(tags$code("*_polymerlist_*.csv"), ": Final polymer identification results sorted by final score.")
