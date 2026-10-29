@@ -25,9 +25,10 @@ ui <- fluidPage(
   # Header Bar
   fluidRow(style = "background-color: #2c3e50; color: white; padding: 10px 20px; margin-bottom: 15px; border-radius: 4px;",
     column(8,
-      div(style = "display: flex; align-items: center; gap: 12px;",
-        h2("NIST Polymer Pyrolysis Search", style = "margin: 0; color: white; display: inline-block;"),
-        span("v1.0.0", style = "font-size: 14px; background-color: #34495e; padding: 3px 8px; border-radius: 4px; color: #ecf0f1; font-weight: bold; font-family: monospace;")
+      h2(
+        "NIST Polymer Pyrolysis Search",
+        span("v1.0.0", style = "font-size: 14px; font-weight: normal; color: #bdc3c7; margin-left: 10px; vertical-align: middle;"),
+        style = "margin: 0; color: white;"
       )
     ),
     column(4, img(height = 45, src = "logo.svg", align = "right"))
@@ -144,7 +145,7 @@ ui <- fluidPage(
           column(6,
             div(class = "help-card",
               h4("Workflow & Step-by-Step Instructions"),
-              ol(style = "padding-left: 20px;",
+              tags$ol(style = "padding-left: 20px;",
                 tags$li(
                   tags$strong("Select Data File: "),
                   "Click ", tags$span(class = "badge-param", "Select File"), " to choose a Py-GC/MS data folder/file (Agilent ", tags$code(".d"), " or NetCDF ", tags$code(".cdf"), "). Note: Data file paths should not contain spaces."
@@ -165,7 +166,7 @@ ui <- fluidPage(
             ),
             div(class = "help-card",
               h4("Interactive Dashboard Features"),
-              ul(style = "padding-left: 20px;",
+              tags$ul(style = "padding-left: 20px;",
                 tags$li(
                   tags$strong("Chromatogram (TIC) & RI Markers: "),
                   "Displays Total Ion Chromatogram with Retention Index calibration marker overlay lines. Selected pyrolyzate peaks display an arrow marker at their retention time."
@@ -188,7 +189,7 @@ ui <- fluidPage(
           column(6,
             div(class = "help-card",
               h4("Search Parameter Reference"),
-              ul(style = "padding-left: 20px;",
+              tags$ul(style = "padding-left: 20px;",
                 tags$li(
                   tags$strong("S/N Cutoff (snc): "),
                   "Filters out components with Signal-to-Noise ratio below the selected cutoff (Range: 3 – 1000, Default: 50)."
@@ -210,7 +211,7 @@ ui <- fluidPage(
             div(class = "help-card",
               h4("Exported Search Results & File Location"),
               p("Each search automatically creates a unique parameter-and-timestamp-named subfolder inside ", tags$code("./results/"), " containing:"),
-              ul(style = "padding-left: 20px;",
+              tags$ul(style = "padding-left: 20px;",
                 tags$li(tags$code("*_search_parameters_*.txt"), ": Summary of search parameters, date/time, and application version (", tags$code("v1.0.0"), ")."),
                 tags$li(tags$code("*_rawsearchresults_*.csv"), ": Unfiltered raw pyrolyzate library hits."),
                 tags$li(tags$code("*_filteredsearchresults_*.csv"), ": Filtered hitlist sorted by modified match factor."),
