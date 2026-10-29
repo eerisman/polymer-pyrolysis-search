@@ -186,7 +186,7 @@ ui <- fluidPage(
                 ),
                 tags$li(
                   tags$strong("Expected Pyrolyzates Table: "),
-                  "Selecting a polymer candidate updates the expected pyrolyzates table showing theoretical marker compounds for that polymer."
+                  "Selecting a polymer candidate updates the expected pyrolyzates table showing theoretical marker compounds for that polymer, with pyrolyzates not found in the sample highlighted in red."
                 )
               )
             )
