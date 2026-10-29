@@ -137,8 +137,9 @@ ui <- fluidPage(
           column(12,
             div(class = "help-card",
               h3(paste("NIST Polymer Pyrolysis Search (NPPS)", APP_VERSION), style = "margin-top: 0; color: #1a202c;"),
-              p("The NIST Polymer Pyrolysis Search application is designed for analyzing Pyrolysis Gas Chromatography / Mass Spectrometry (Py-GC/MS) data to search, identify, and quantify polymers and pyrolyzates in query samples.")
-            )
+              p("The NIST Polymer Pyrolysis Search application is designed for analyzing Pyrolysis Gas Chromatography / Mass Spectrometry (Py-GC/MS) data to identify polymers by their major pyrolyzates.  
+                See the following paper in Environmental Science & Technology for more information."),  tags$a(href = "https://doi.org/10.1021/acs.est.5c18872", "https://doi.org/10.1021/acs.est.5c18872") 
+            )  
           )
         ),
         fluidRow(
@@ -147,12 +148,16 @@ ui <- fluidPage(
               h4("Workflow & Step-by-Step Instructions"),
               tags$ol(style = "padding-left: 20px;",
                 tags$li(
-                  tags$strong("Select Data File: "),
-                  "Click ", tags$span(class = "badge-param", "Select File"), " to choose a Py-GC/MS data folder/file (Agilent ", tags$code(".d"), " or NetCDF ", tags$code(".cdf"), "). Note: Data file paths should not contain spaces."
+                  tags$strong("Select RI Data File: "),
+                  "Click ", tags$span(class = "badge-param", "Select File"), " to choose a n-alkane RI calibration data folder/file (Agilent ", tags$code(".d"), " or NetCDF ", tags$code(".cdf"), "). Note: If the data file path contains a space AMDIS will not run."
                 ),
                 tags$li(
                   tags$strong("Create RI Calibration: "),
-                  "Select alkane standard data and click ", tags$span(class = "badge-param", "Create RI Calibration"), ". This runs AMDIS to build/update the local Retention Index calibration file (", tags$code("./AMDIS/LIB/Local.cal"), ")."
+                  "Click ", tags$span(class = "badge-param", "Create RI Calibration"), " to run AMDIS on the currently selected to build/update the Retention Index calibration file (", tags$code("./AMDIS/LIB/Local.cal"), ").  If the current calibration file is valid you can omit steps 1 and 2.  This is designed for use with a mixture of sequential n-alkanes.  If the automatic calibration fails you can manually edit the file."
+                ),
+                tags$li(
+                  tags$strong("Select Pyrolysis Data File: "),
+                  "Click ", tags$span(class = "badge-param", "Select File"), " to choose a Py-GC/MS data folder/file (Agilent ", tags$code(".d"), " or NetCDF ", tags$code(".cdf"), "). Note: If the data file path contains a space AMDIS will not run."
                 ),
                 tags$li(
                   tags$strong("Run AMDIS Deconvolution: "),
@@ -160,7 +165,7 @@ ui <- fluidPage(
                 ),
                 tags$li(
                   tags$strong("Adjust Parameters & Re-Search: "),
-                  "Modify search parameter sliders or options as needed and click ", tags$span(class = "badge-param", "Polymer Search"), ". Re-searching uses cached ", tags$code(".MSPEC"), " data without requiring AMDIS to re-run."
+                  "Modify search parameter sliders or options as needed and click ", tags$span(class = "badge-param", "Polymer Search"), ". Re-searching uses cached ", tags$code(".MSPEC"), " data without re-running AMDIS."
                 )
               )
             ),
@@ -205,6 +210,10 @@ ui <- fluidPage(
                 tags$li(
                   tags$strong("Waive RI penalty outside calibration range: "),
                   "When checked (default), peaks with retention index values outside the calibrated range in ", tags$code("Local.cal"), " are exempted from RI deviation penalties."
+                ),
+                tags$li(
+                  tags$strong("RI tolerance: "),
+                  "Not displayed or user selectable.  Tolerance is RI/100.  Match factor is penalized when query RI deviates from the library RI by more than the tolerance.  The match factor penalty is computed by (|RI.query - RI.library| - RI.tolerance) / RI.tolerance."
                 )
               )
             ),
@@ -212,7 +221,7 @@ ui <- fluidPage(
               h4("Exported Search Results & File Location"),
               p("Each search automatically creates a unique parameter-and-timestamp-named subfolder inside ", tags$code("./results/"), " containing:"),
               tags$ul(style = "padding-left: 20px;",
-                tags$li(tags$code("*_search_parameters_*.txt"), paste0(": Summary of search parameters, date/time, and application version (", APP_VERSION, ").")),
+                tags$li(tags$code("*_search_parameters_*.txt"), paste0(": Summary of search parameters, date/time, and application version.")),
                 tags$li(tags$code("*_rawsearchresults_*.csv"), ": Unfiltered raw pyrolyzate library hits."),
                 tags$li(tags$code("*_filteredsearchresults_*.csv"), ": Filtered hitlist sorted by modified match factor."),
                 tags$li(tags$code("*_polymerlist_*.csv"), ": Final polymer identification results sorted by final score.")
